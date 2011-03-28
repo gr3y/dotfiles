@@ -1,0 +1,57 @@
+urxvt*termName:									xterm-256color
+!urxvt*scrollBar:								true
+!urxvt*scrollBar_right:					true
+!urxvt*scrollstyle:							xterm
+
+
+xterm*metaSendsEscape:					true
+xterm*allowSendEvents:					true
+!xterm*utf8:										2
+xterm*eightBitInput:						true
+
+!xtermloginShell:								True
+xterm*saveLines:								30000
+!*customization:								-color
+xterm*termName:									xterm-256color
+!xterm*faceName:								Envy Code:pixelsize=10
+!xterm*faceName:								Inconsolata:pixelsize=12
+xterm*faceName:									Monaco:pixelsize=10
+!xterm*faceName:								Terminus:pixelsize=11
+!xterm*faceName:								smoothansi.se:pixelsize=10
+!xterm*faceName:								White Rabbit:pixelsize=10
+!xxterm*faceName:								Terminus:pixelsize=10
+!xterm*faceSize:								9
+
+xterm*scrollBar:								true
+xterm*rightScrollBar:						true
+!xterm*transpscrollbar:					true
+
+xterm*dynamiccolors:						true
+
+
+! Color themes
+!# include "/home/andreasp/.colors/Arthur-Colors"
+!# include "/home/andreasp/.colors/Colorful-Neon"
+!# include "/home/andreasp/.colors/New-colorset"
+!# include "/home/andreasp/.colors/thayer"
+!# include "/home/andreasp/.colors/Warm-Colors"
+!# include "/home/andreasp/.colors/thayers-org"
+!# include "/home/andreasp/.colors/Molokai-MOD"
+!# include "/home/andreasp/.colors/Molokai-MOD-grey2"
+# include "/home/andreasp/.colors/256-grayvim"
+!# include "/home/andreasp/.colors/256-gr3y"
+!# include "/home/andreasp/.colors/mish-mash"
+!# include "/home/andreasp/.colors/vimbrant"
+!# include "/home/andreasp/.colors/cdwills"
+!# include "/home/andreasp/.colors/tvale"
+!# include "/home/andreasp/.colors/xterminus"
+
+
+!*background:										#121212
+*background:										#262626
+*foreground:										#dadada
+!xterm*scrollbar.foreground:		#a6e22e
+!xterm*scrollbar.foreground:		#F92672
+!xterm*scrollbar.foreground:		#5fafff
+!
+! vim:fenc=utf-8:ft=xdefaults

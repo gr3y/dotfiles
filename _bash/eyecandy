@@ -1,0 +1,35 @@
+#!/bin/bash - 
+#===============================================================================
+#
+#					 FILE: eyecandy 
+# 
+#					USAGE:	sourced from "/.bashrc
+# 
+#		DESCRIPTION:	Eyecandy for the shell
+# 
+#				 AUTHOR:	Andreas Persson andreas(at)greyscale(dot)se
+#				
+#				CREATED:	2011-0326 18:42
+#
+#===============================================================================
+#
+
+# 
+# Pretty colors in less and man pages.
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+
+# cwapper color settings
+# export CW_COLORIZE=red:green
+
+# Colors for ls
+if [ -e ~/.dircolors-256grayvim ]; then
+		eval $(/bin/dircolors -b ~/.dircolors-256grayvim)
+fi
+
+# vim:fenc=utf-8:ft=sh

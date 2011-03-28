@@ -1,0 +1,69 @@
+#!/bin/bash - 
+#===============================================================================
+#
+#					 FILE:	.bashrc
+# 
+#					USAGE:	sourced from "/.bashrc
+# 
+#		DESCRIPTION:	Greyscale's .bashrc
+# 
+#				 AUTHOR:	Andreas Persson andreas(at)greyscale(dot)se
+#				
+#				CREATED:	§2011-0326 18:46
+#
+#===============================================================================
+#
+
+# Check for an interactive session, if not don't do anything.
+[ -z "$PS1" ] && return
+
+echo "Reading .bashrc"
+
+# File extraction need extglob
+shopt -s extglob
+
+# Check if LINES and COLUMNS needs to be updated.
+shopt -s checkwinsize
+
+# Control history (luckily the winner of the war writes it).
+shopt -s histappend									# append the history to the histfile instead of overwriting it.
+shopt -s cmdhist									# multi-line commands are stored in the history
+export HISTFILESIZE=1000							# bash history file length
+export HISTCONTROL=ignoreboth						# no duplicates and empty lines
+export HISTIGNORE="&:ls:[bf]g:exit"					# do not store these lines
+#export PROMPT_COMMAND="history -n; history -a"		# update & re-read histfile after every cmd so terminals will share
+
+
+export PATH=/home/andreasp/apps/bin:$PATH
+
+export EDITOR='vi'
+export LS_OPTIONS='--color --group-directories-first'
+export GREP_COLOR='38;5;111'
+export PAGER='less'
+export LESS='-iR'
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
+SSH_ENV=$HOME/.ssh/environment
+
+# Disable XON/XOFF flow control (^s/^q)
+stty -ixon
+
+# Source all files in ~/.bash/
+for CFGFILE in ~/.bash/*
+do
+	if [ -r ${CFGFILE} ]; then
+		source ${CFGFILE}
+	fi
+done
+
+
+# Source SSH settings, if applicable
+if [ -f "${SSH_ENV}" ]; then
+	. ${SSH_ENV} > /dev/null
+	ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+		start_agent;
+	}
+else
+	start_agent;
+fi
+
+# vim:fenc=utf-8:ft=sh

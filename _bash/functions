@@ -1,0 +1,77 @@
+#!/bin/bash - 
+#===============================================================================
+#
+#          FILE:  functions
+# 
+#         USAGE:  sourced from "/.bashrc
+# 
+#   DESCRIPTION:  Some useful functions.
+# 
+#        AUTHOR:  Andreas Persson andreas(at)greyscale(dot)se
+#       COMPANY: 
+#       CREATED:  02/20/2011 12:38:27 PM CET
+#
+#===============================================================================
+#
+
+# File extraction need extglob
+shopt -s extglob
+
+
+# Easy extraction of compressed files.
+extract() {
+  local e=0 i c
+  for i; do
+    if [[ -r $i ]]; then
+        c=''
+        case $i in
+          *.t@(gz|lz|xz|b@(2|z?(2))|a@(z|r?(.@(Z|bz?(2)|gz|lzma|xz)))))
+                 c='bsdtar xvf' ;;
+          *.7z)  c='7z x'       ;;
+          *.Z)   c='uncompress' ;;
+          *.bz2) c='bunzip2'    ;;
+          *.exe) c='cabextract' ;;
+          *.gz)  c='gunzip'     ;;
+          *.rar) c='unrar x'    ;;
+          *.xz)  c='unxz'       ;;
+          *.zip) c='unzip'      ;;
+          *)     echo "$0: cannot extract \`$i': Unrecognized file extension" >&2; e=1 ;;
+        esac
+        [[ $c ]] && command $c "$i"
+    else
+        echo "$0: cannot extract \`$i': File is unreadable" >&2; e=2
+    fi
+  done
+  return $e
+}
+
+# Change preferences back to ~/.xtermcontrol defaults after 'su' session         
+#su() {
+#   command su "$@"
+#   xtermcontrol
+#}
+
+# Change preferences back to ~/.xtermcontrol defaults after 'ssh' session         
+#ssh() {
+#   command ssh "$@"
+#   /usr/bin/xtermcontrol
+#}
+
+
+pss() {
+    ps -ef | grep "${USER}"
+}
+
+findm() {
+    find ./ \( -iname "*$1*" ! -iname "*.jpg" ! -iname "*.jpeg" ! -iname "*.png" ! -iname "*.gif" \) -print
+}
+
+
+function start_agent {
+     /usr/bin/ssh-agent | sed 's/^echo/#echo/' > ${SSH_ENV}
+     chmod 600 ${SSH_ENV}
+     . ${SSH_ENV} > /dev/null
+     /usr/bin/ssh-add > /dev/null 2>&1;
+}
+
+# vim:fenc=utf-8:ft=sh

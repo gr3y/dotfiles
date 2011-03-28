@@ -1,0 +1,45 @@
+# -[ COLOR DEFINITIONS ]-----------------------------------------------
+
+color hdrdefault cyan           default
+color quoted     cyan           default
+color quoted1    brightblue     default
+color quoted2    brightblue     default
+color quoted3    yellow         default
+color quoted4    red            default
+color signature  cyan           default
+color indicator  white          cyan
+color attachment cyan           default
+color error      red            default
+color message    white          default
+color search     white          default
+color status     green     default
+color tree       white          default
+color normal     white          default
+color tilde      green          default
+color bold       white          default
+color markers    red            default
+
+# -[ COLOUR DEFINITIONS WHEN ON A MONO SCREEN ]--------------------------------
+
+mono bold        bold
+mono underline   underline
+mono indicator   reverse
+
+# -[ COLOURS FOR ITEMS IN THE READER ]-----------------------------------------
+
+color header     brightwhite    default         "^(From|Subject):"
+color header     red            default         "^X-Junked-Because:"
+mono  header     bold                           "^(From|Subject|X-Junked-Because):"
+
+# -[ COLOURS FOR ITEMS IN THE INDEX ]------------------------------------------
+
+color index     cyan            default         ~N
+color index     brightgreen     default         "~N ~x \"cmauch\.(gmail\.com|taclug\.org)\""
+color index     red             default         ~F # Flagged
+color index     white           red             ~T # Tagged
+color index     white           default         ~D
+mono  index     bold                            ~N
+mono  index     bold                            ~F
+mono  index     bold                            ~T
+mono  index     bold                            ~D
+

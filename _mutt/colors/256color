@@ -1,0 +1,53 @@
+#===============================================================================
+#
+#          FILE:  256color
+# 
+#         USAGE:  sourced from "/.muttrc
+# 
+#   DESCRIPTION:  Puts some color on old trusty mutt
+# 
+#        AUTHOR:  Andreas Persson andreas(at)greyscale(dot)se
+#       COMPANY: 
+#       CREATED:  02/20/2011 12:38:27 PM CET
+#
+#===============================================================================
+#
+
+color   normal          color111        color235
+color   quoted          color244        color235
+color   signature       color126        color235
+color   indicator       color208        color234
+color   error           color160        color235
+color   status          color75         color233
+color   tree            color75         color235
+color   tilde           color246        color235
+color   message         color75         color235
+color   markers         color76         color235
+color   attachment      color221        color235
+color   search          color160        color235
+
+#sidebar in mutt-ng
+color   sidebar_new     color124        color235
+
+color   hdrdefault      color111        color235
+#color  header          color243        color235    "^(Date|From|Subject)"
+#color  header          color73         color235    "^(To|Reply-To):"
+#color  header          color245        color235    "^(X-Original-To):"
+#color  header          color96         color235    "^(User-Agent|X-Editor):"
+
+color   body            color81         color235    "(ftp|http)://\w[^ ]+[^.]"  # point out URLs
+color   body            color128        color235    "[-.+\w]+@[-.\w]+[^.]"      # e-mail addresses
+
+color   underline       brightgreen     color235
+
+color   index           color27         color235    ~N  # New
+color   index           color111        color235    ~O  # Old
+color   index           color220        color235    ~T  # tagged
+color   index           color160        color235    ~D  # Deleted
+color   index           cyan            color235    ~F  # Flagged
+
+# attributes when using a mono terminal
+#mono   header          underline       ^(From|Subject):
+mono    quoted          bold
+
+# vim: filetype=muttrc

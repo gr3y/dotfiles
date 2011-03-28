@@ -1,0 +1,53 @@
+set header_cache="~/.mutt-cache/hcache"
+set message_cachedir=~/.mutt-cache/msgcache"
+set nobeep
+set sendmail="/usr/bin/msmtp"
+set allow_8bit
+set allow_ansi
+set charset="utf-8"
+set envelope_from=yes
+set mailcap_path="~/.mailcap"
+auto_view "text/html"
+#set implicit_autoview
+set move = no
+set sort=threads
+set pager_index_lines=20
+#set ascii_chars
+set mail_check=60
+set timeout=60
+set editor=vim
+set ispell="aspell -e -c"
+#set arrow_cursor
+set date_format="%Y-%m-%d %H:%M:%S"
+set index_format="%4C  [%3Z|%?X?A& ?|%S]  %-19.19[%Y-%m-%d %H:%M:%S]  [%-25.35F (%-30.30a)]  (%4c)  -  %s"
+set sidebar_visible="yes"
+set sidebar_width=20
+set sidebar_delim="│"
+#set sidebar_delim='|'
+#set sidebar_sort=yes
+
+set markers = no                # no `+' makes URL surgery easier
+
+bind index \Cp sidebar-prev
+bind index \Cn sidebar-next
+bind index \Cb sidebar-open
+bind pager \Cp sidebar-prev
+bind pager \Cn sidebar-next
+bind pager \Cb sidebar-open
+
+
+
+set pager_stop
+
+bind pager <Up> previous-line
+bind pager <Down> next-line
+bind pager <Return> next-line
+bind pager <Left> exit
+bind index <Right> display-message
+bind pager "q" exit
+
+
+source ~/.mutt/colors/256color
+source ~/.mutt-accounts
+
+# vim: set ft=muttrc:

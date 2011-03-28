@@ -1,0 +1,18 @@
+set echo-control-characters off
+
+# Complete command due to history.
+"\e[5~": history-search-backward
+"\e[6~": history-search-forward
+
+
+# Ctrl+Alt+l -> runs lines and pipes it to less
+"\e\C-l":"\C-e | less\C-m"
+
+# Alt+s -> wraps line in su -c
+"\es":"\C-a su -c '\C-e'\C-m"
+
+# Alt+Ctrl+b -> Send to background and pipe all output to /dev/null
+"\e\C-b":"\C-e > /dev/null 2>&1 &\C-m"
+
+# O bell.. please die.. just die wont you ;)
+set audible-bell none
