@@ -4,14 +4,14 @@
 *color8: #121212
 !red
 *color1: #5fafff
-*color9: #5fafff
+*color9: #2e96ff
 !green
 *color2: #ff8700
-*color10: #ff8700
+*color10: #ff5400
 !yellow
 !*color3: #ffd700
 *color3: #add500
-*color11: #add500
+*color11: #81d500
 !blue
 *color4 : #005fff
 !*color4: #87afff
@@ -19,7 +19,7 @@
 *color12 : #005fff
 !magenta
 *color5: #F92672
-*color13: #F92672
+*color13: #ff1cbe
 !cyan
 *color6: #4e4e4e
 *color14: #4e4e4e
