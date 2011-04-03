@@ -26,35 +26,32 @@
 !
 
 !black 
-*color0: #121212
-*color8: #121212
+*color0:        #121212
+*color8:        #121212
 !red
-*color1: #5fafff
-*color9: #2e96ff
+*color1:        #d70000
+*color9:        #ff0056
+!*color9:        #870000
 !green
-*color2: #ff8700
-*color10: #ff5400
+*color2:        #5fd700
+*color10:       #a0eb01
 !yellow
-!*color3: #ffd700
-*color3: #add500
-*color11: #81d500
+*color3:        #ffd700
+*color11:       #fcf330
 !blue
-*color4 : #005fff
-!*color4: #87afff
-!*color12: #87afff
-*color12 : #005fff
+*color4:        #5fafff
+*color12:       #87afff
 !magenta
-*color5: #F92672
-*color13: #ff1cbe
+*color5:        #ff8700
+*color13:       #ff5400
 !cyan
-*color6: #4e4e4e
-*color14: #4e4e4e
+*color6:        #808080
+*color14:       #5fffff
 !white
-*color7 : #dadada
-*color15: #dadada
+*color7:        #e4e4e4
+*color15:       #e4e4e4
 
-*background: #262626
-*foreground: #dadada
-
+*background:    #262626
+*foreground:    #909090
 
 ! vim:fenc=utf-8:ft=xdefaults

@@ -36,7 +36,8 @@ export HISTIGNORE="&:ls:[bf]g:exit"					# do not store these lines
 
 export PATH=/home/andreasp/apps/bin:$PATH
 
-export EDITOR='vi'
+export EDITOR='vim'
+export VISUAL='vim'
 export LS_OPTIONS='--color --group-directories-first'
 export GREP_COLOR='38;5;111'
 export PAGER='less'

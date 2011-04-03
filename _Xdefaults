@@ -50,8 +50,8 @@ xterm*dynamiccolors:            true
 
 
 !*background:                   #121212
-*background:                    #262626
-*foreground:                    #c8c8c8
+!*background:                    #262626
+!*foreground:                    #c8c8c8
 !xterm*scrollbar.foreground:    #a6e22e
 !xterm*scrollbar.foreground:    #F92672
 !xterm*scrollbar.foreground:    #5fafff
