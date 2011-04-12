@@ -1,8 +1,25 @@
-urxvt*termName:                 xterm-256color
-!urxvt*scrollBar:               true
-!urxvt*scrollBar_right:         true
-!urxvt*scrollstyle:             xterm
+!
+!   @@@@@@@@  @@@@@@@   @@@@@@@@  @@@ @@@   @@@@@@    @@@@@@@   @@@@@@   @@@       @@@@@@@@
+!  @@@@@@@@@  @@@@@@@@  @@@@@@@@  @@@ @@@  @@@@@@@   @@@@@@@@  @@@@@@@@  @@@       @@@@@@@@
+!  !@@        @@!  @@@  @@!       @@! !@@  !@@       !@@       @@!  @@@  @@!       @@!
+!  !@!        !@!  @!@  !@!       !@! @!!  !@!       !@!       !@!  @!@  !@!       !@!
+!  !@! @!@!@  @!@!!@!   @!!!:!     !@!@!   !!@@!!    !@!       @!@!@!@!  @!!       @!!!:!
+!  !!! !!@!!  !!@!@!    !!!!!:      @!!!    !!@!!!   !!!       !!!@!!!!  !!!       !!!!!:
+!  :!!   !!:  !!: :!!   !!:         !!:         !:!  :!!       !!:  !!!  !!:       !!:
+!  :!:   !::  :!:  !:!  :!:         :!:        !:!   :!:       :!:  !:!   :!:      :!:
+!   ::: ::::  ::   :::   :: ::::     ::    :::: ::    ::: :::  ::   :::   :: ::::   :: ::::
+!   :: :: :    :   : :  : :: ::      :     :: : :     :: :: :   :   : :  : :: : :  : :: ::
+!
+!                           .: .Xdefaults - 2011-04-07 19:33 :.
+!                                 Some settings for Xapps.
+!
+! __________________________________________________________________________________________
+!  This file is distributed "as it is", like it? Then use it in whole or parts of it but be
+!   minded that it comes with absolutely no warranty. But then again you got it for free..
+! __________________________________________________________________________________________
+!
 
+urxvt*termName:                 xterm-256color
 
 xterm*metaSendsEscape:          true
 xterm*allowSendEvents:          true
@@ -15,21 +32,34 @@ xterm*saveLines:                30000
 xterm*termName:                 xterm-256color
 !xterm*faceName:                Envy Code:pixelsize=10
 !xterm*faceName:                Inconsolata:pixelsize=12
-xterm*faceName:                 Monaco:pixelsize=10
-!xterm*faceName:                 Fixedsys Excelsior 3.01:pixelsize=13
-!xterm*faceName:                 Bitstream Vera Sans Mono:pixelsize=10
-!xterm*faceName:                Terminus:pixelsize=10
+xterm*faceName:                 xft:Monaco:pixelsize=10
+!xterm*faceName:                Fixedsys Excelsior 3.01:pixelsize=13
+!xterm*faceName:                Bitstream Vera Sans Mono:pixelsize=10
+!xterm*faceName:                Terminus (TTF):style=Medium:pixelsize=12
 !xterm*faceName:                smoothansi.se:pixelsize=10
 !xterm*faceName:                White Rabbit:pixelsize=10
 !xxterm*faceName:               Terminus:pixelsize=10
 !xterm*faceSize:                9
-
 xterm*scrollBar:                true
 xterm*rightScrollBar:           true
 !xterm*transpscrollbar:         true
-
 xterm*dynamiccolors:            true
+xterm*boldFont:                 fixed
+!xterm*boldMode:                 false
+!xterm*boldFont:                 fixed
 
+
+! Urgentbell etc for WeeChats  and mutts terminals.
+! eg. xterm -class WeeUXTERM -title WeeChat -e /bin/bash -c /usr/bin/weechat-curses
+!WeeUXTERM*visualBell:           true
+!WeeUXTERM*visualBellDelay:      0
+WeeUXTERM*bellIsUrgent:         true
+WeeUXTERM*scrollBar:            false
+
+!MuttUXTERM*visualBell:          true
+!MuttUXTERM*visualBellDelay:     0
+MuttUXTERM*bellIsUrgent:        true
+MuttUXTERM*scrollBar:           false
 
 ! Color themes
 !# include "/home/andreasp/.colors/Arthur-Colors"
@@ -48,12 +78,4 @@ xterm*dynamiccolors:            true
 !# include "/home/andreasp/.colors/tvale"
 !# include "/home/andreasp/.colors/xterminus"
 
-
-!*background:                   #121212
-!*background:                    #262626
-!*foreground:                    #c8c8c8
-!xterm*scrollbar.foreground:    #a6e22e
-!xterm*scrollbar.foreground:    #F92672
-!xterm*scrollbar.foreground:    #5fafff
-!
 ! vim:fenc=utf-8:ft=xdefaults

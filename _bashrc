@@ -1,17 +1,26 @@
-#!/bin/bash - 
-#===============================================================================
+#!/bin/bash
 #
-#					 FILE:	.bashrc
-# 
-#					USAGE:	sourced from "/.bashrc
-# 
-#		DESCRIPTION:	Greyscale's .bashrc
-# 
-#				 AUTHOR:	Andreas Persson andreas(at)greyscale(dot)se
-#				
-#				CREATED:	§2011-0326 18:46
+#   @@@@@@@@  @@@@@@@   @@@@@@@@  @@@ @@@   @@@@@@    @@@@@@@   @@@@@@   @@@       @@@@@@@@
+#  @@@@@@@@@  @@@@@@@@  @@@@@@@@  @@@ @@@  @@@@@@@   @@@@@@@@  @@@@@@@@  @@@       @@@@@@@@
+#  !@@        @@!  @@@  @@!       @@! !@@  !@@       !@@       @@!  @@@  @@!       @@!
+#  !@!        !@!  @!@  !@!       !@! @!!  !@!       !@!       !@!  @!@  !@!       !@!
+#  !@! @!@!@  @!@!!@!   @!!!:!     !@!@!   !!@@!!    !@!       @!@!@!@!  @!!       @!!!:!
+#  !!! !!@!!  !!@!@!    !!!!!:      @!!!    !!@!!!   !!!       !!!@!!!!  !!!       !!!!!:
+#  :!!   !!:  !!: :!!   !!:         !!:         !:!  :!!       !!:  !!!  !!:       !!:
+#  :!:   !::  :!:  !:!  :!:         :!:        !:!   :!:       :!:  !:!   :!:      :!:
+#   ::: ::::  ::   :::   :: ::::     ::    :::: ::    ::: :::  ::   :::   :: ::::   :: ::::
+#   :: :: :    :   : :  : :: ::      :     :: : :     :: :: :   :   : :  : :: : :  : :: ::
 #
-#===============================================================================
+#                             .: .bashrc - 2011-03-26 18:46 :.
+#
+#                  My .bashrc, aliases, bash functions, colors are put in
+#              serperate file in ~/.bash/ trying to make some order in caos.
+#
+#           .: Andreas Persson (greyscale, greu) andreas(at)greyscale(dot)se :.
+# __________________________________________________________________________________________
+#  This file is distributed "as it is", like it? Then use it in whole or parts of it but be
+#   minded that it comes with absolutely no warranty. But then again you got it for free..
+# __________________________________________________________________________________________
 #
 
 # Check for an interactive session, if not don't do anything.
@@ -26,15 +35,18 @@ shopt -s extglob
 shopt -s checkwinsize
 
 # Control history (luckily the winner of the war writes it).
-shopt -s histappend									# append the history to the histfile instead of overwriting it.
-shopt -s cmdhist									# multi-line commands are stored in the history
-export HISTFILESIZE=1000							# bash history file length
-export HISTCONTROL=ignoreboth						# no duplicates and empty lines
-export HISTIGNORE="&:ls:[bf]g:exit"					# do not store these lines
-#export PROMPT_COMMAND="history -n; history -a"		# update & re-read histfile after every cmd so terminals will share
+shopt -s histappend                               # append the history to the histfile instead of overwriting it.
+shopt -s cmdhist                                  # multi-line commands are stored in the history
+export HISTFILESIZE=1000                          # bash history file length
+export HISTCONTROL=ignoreboth                     # no duplicates and empty lines
+export HISTIGNORE="&:ls:[bf]g:exit"               # do not store these lines
+#export PROMPT_COMMAND="history -n; history -a"   # update & re-read histfile after every cmd so terminals will share
 
 
-export PATH=/home/andreasp/apps/bin:$PATH
+export PATH=/home/andreasp/.bin:/home/andreasp/apps/bin:$PATH
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 export EDITOR='vim'
 export VISUAL='vim'
@@ -42,6 +54,7 @@ export LS_OPTIONS='--color --group-directories-first'
 export GREP_COLOR='38;5;111'
 export PAGER='less'
 export LESS='-iR'
+export LESSOPEN='|/usr/bin/lesspipe.sh %s 2>&-'
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
 SSH_ENV=$HOME/.ssh/environment
 
@@ -51,20 +64,20 @@ stty -ixon
 # Source all files in ~/.bash/
 for CFGFILE in ~/.bash/*
 do
-	if [ -r ${CFGFILE} ]; then
-		source ${CFGFILE}
-	fi
+  if [ -r ${CFGFILE} ]; then
+    source ${CFGFILE}
+  fi
 done
 
 
 # Source SSH settings, if applicable
 if [ -f "${SSH_ENV}" ]; then
-	. ${SSH_ENV} > /dev/null
-	ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-		start_agent;
-	}
+  . ${SSH_ENV} > /dev/null
+  ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+    start_agent;
+  }
 else
-	start_agent;
+  start_agent;
 fi
 
 # vim:fenc=utf-8:ft=sh

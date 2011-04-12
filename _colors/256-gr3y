@@ -30,14 +30,15 @@
 *color8:        #121212
 !red
 *color1:        #d70000
-*color9:        #ff0056
+*color9:        #e4186e
+!*color9:        #ff0056
 !*color9:        #870000
 !green
-*color2:        #5fd700
-*color10:       #a0eb01
+*color2:        #a0eb01
+*color10:       #5fd700
 !yellow
-*color3:        #ffd700
-*color11:       #fcf330
+*color3:        #fcf330
+*color11:       #ffd700
 !blue
 *color4:        #5fafff
 *color12:       #87afff

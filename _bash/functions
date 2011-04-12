@@ -58,11 +58,11 @@ extract() {
 #}
 
 
-pss() {
+function pss() {
     ps -ef | grep "${USER}"
 }
 
-findm() {
+function findm() {
     find ./ \( -iname "*$1*" ! -iname "*.jpg" ! -iname "*.jpeg" ! -iname "*.png" ! -iname "*.gif" \) -print
 }
 
@@ -72,6 +72,16 @@ function start_agent {
      chmod 600 ${SSH_ENV}
      . ${SSH_ENV} > /dev/null
      /usr/bin/ssh-add > /dev/null 2>&1;
+}
+
+function apath {
+#PATH=$(echo $PATH | sed -e 's;:\?/home/andreasp/apps/bin/acoc-links;;' -e 's;/home/andreasp/apps/bin/acoc-links:\?;;')
+  if [ $1 ]; then
+    PATH=$(echo $PATH | sed -e "s;:\?$1;;" -e "s;$1:\?;;")
+    export PATh
+  else
+    echo "Usage: apath /path/to/remove/from/\$PATH"
+  fi
 }
 
 # vim:fenc=utf-8:ft=sh
