@@ -46,7 +46,7 @@ export HISTIGNORE="&:ls:[bf]g:exit"               # do not store these lines
 export PATH=/home/andreasp/.bin:/home/andreasp/apps/bin:$PATH
 
 # make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/bash lesspipe)"
 
 export EDITOR='vim'
 export VISUAL='vim'
@@ -54,7 +54,7 @@ export LS_OPTIONS='--color --group-directories-first'
 export GREP_COLOR='38;5;111'
 export PAGER='less'
 export LESS='-iR'
-export LESSOPEN='|/usr/bin/lesspipe.sh %s 2>&-'
+#export LESSOPEN='|/usr/bin/lesspipe.sh %s 2>&-'
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
 SSH_ENV=$HOME/.ssh/environment
 
@@ -62,8 +62,7 @@ SSH_ENV=$HOME/.ssh/environment
 stty -ixon
 
 # Source all files in ~/.bash/
-for CFGFILE in ~/.bash/*
-do
+for CFGFILE in ~/.bash/*; do
   if [ -r ${CFGFILE} ]; then
     source ${CFGFILE}
   fi

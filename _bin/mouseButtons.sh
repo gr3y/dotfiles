@@ -40,8 +40,8 @@ case $1 in
     # Button 8
     case $name in
       "eog" ) `xdotool key --window $cur Prior` ;;
-      # "Navigator" ) `xdotool key --window $cur ctrl+minus` ;;
-      "Navigator" ) `xdotool key --window $cur ctrl` ;; # Stop ff from going back/forward.
+      "Navigator" ) `xdotool key --window $cur ctrl+minus` ;;
+      #"Navigator" ) `xdotool key --window $cur ctrl` ;; # Stop ff from going back/forward.
       "evince" ) `xdotool key --window $cur ctrl+minus` ;;
     esac
   ;;
@@ -49,8 +49,8 @@ case $1 in
     # Button 9
     case $name in
       "eog" ) `xdotool key --window $cur Next` ;;
-      # "Navigator" ) `xdotool key --window $cur ctrl+plus` ;;
-      "Navigator" ) `xdotool key --window $cur ctrl` ;; # Stop ff from going back/forward.
+      "Navigator" ) `xdotool key --window $cur ctrl+plus` ;;
+      #"Navigator" ) `xdotool key --window $cur ctrl` ;; # Stop ff from going back/forward.
       "evince" ) `xdotool key --window $cur ctrl+plus` ;;
     esac
   ;;

@@ -13,9 +13,8 @@
     .: FILE:          |FILENAME|
     .: CREATED:       |DATE|
     .: AUTHOR:        Andreas Persson (greyscale, grey)
-    .: MAIL;          <andreas(at)greyscale(dot)se>
+    .: MAIL:          <andreas(at)greyscale(dot)se>
     .: VERSION:       1.0
-    .: REVISION:      ---
     .: DESCRIPTION:   
 
  __________________________________________________________________________________________

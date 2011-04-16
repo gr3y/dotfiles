@@ -19,63 +19,61 @@
 ! __________________________________________________________________________________________
 !
 
-urxvt*termName:                 xterm-256color
+! {{
+! xterm settings
+  xterm*metaSendsEscape:          true
+  xterm*allowSendEvents:          true
+! xterm*utf8:                     2
+  xterm*eightBitInput:            true
+  xterm*scrollBar:                true
+  xterm*rightScrollBar:           true
+  xterm*dynamiccolors:            true
+! xtermloginShell:                True
+  xterm*saveLines:                30000
+  xterm*termName:                 xterm-256color
+! xterm*faceName:                 Envy Code:pixelsize=10
+! xterm*faceName:                 Inconsolata:pixelsize=12
+  xterm*faceName:                 Monaco:antialias=True:pixelsize=10
+  xterm*boldFont:                 Monaco:antialias=True:style=Bold:pixelsize=10
+! xterm*faceName:                 Fixedsys Excelsior 3.01:pixelsize=13
+! xterm*faceName:                 Bitstream Vera Sans Mono:pixelsize=10
+! xterm*faceName:                 Terminus (TTF):style=Medium:pixelsize=12
+! xterm*faceName:                 smoothansi.se:pixelsize=10
+! xterm*faceName:                 White Rabbit:pixelsize=10
+! xxterm*faceName:                Terminus:pixelsize=10
+! xterm*faceSize:                 9
+! }}
 
-xterm*metaSendsEscape:          true
-xterm*allowSendEvents:          true
-!xterm*utf8:                    2
-xterm*eightBitInput:            true
-
-!xtermloginShell:               True
-xterm*saveLines:                30000
-!*customization:                -color
-xterm*termName:                 xterm-256color
-!xterm*faceName:                Envy Code:pixelsize=10
-!xterm*faceName:                Inconsolata:pixelsize=12
-xterm*faceName:                 xft:Monaco:pixelsize=10
-!xterm*faceName:                Fixedsys Excelsior 3.01:pixelsize=13
-!xterm*faceName:                Bitstream Vera Sans Mono:pixelsize=10
-!xterm*faceName:                Terminus (TTF):style=Medium:pixelsize=12
-!xterm*faceName:                smoothansi.se:pixelsize=10
-!xterm*faceName:                White Rabbit:pixelsize=10
-!xxterm*faceName:               Terminus:pixelsize=10
-!xterm*faceSize:                9
-xterm*scrollBar:                true
-xterm*rightScrollBar:           true
-!xterm*transpscrollbar:         true
-xterm*dynamiccolors:            true
-xterm*boldFont:                 fixed
-!xterm*boldMode:                 false
-!xterm*boldFont:                 fixed
-
-
-! Urgentbell etc for WeeChats  and mutts terminals.
+! {{
+! Urgentbell etc for WeeChats terminals.
 ! eg. xterm -class WeeUXTERM -title WeeChat -e /bin/bash -c /usr/bin/weechat-curses
-!WeeUXTERM*visualBell:           true
-!WeeUXTERM*visualBellDelay:      0
-WeeUXTERM*bellIsUrgent:         true
-WeeUXTERM*scrollBar:            false
+  WeeUXTERM*bellIsUrgent:         true
+  WeeUXTERM*scrollBar:            false
+! }}
 
-!MuttUXTERM*visualBell:          true
-!MuttUXTERM*visualBellDelay:     0
-MuttUXTERM*bellIsUrgent:        true
-MuttUXTERM*scrollBar:           false
+! {{
+! Same for mutt.
+  MuttUXTERM*bellIsUrgent:        true
+  MuttUXTERM*scrollBar:           false
+!}}
 
+! {{
 ! Color themes
-!# include "/home/andreasp/.colors/Arthur-Colors"
-!# include "/home/andreasp/.colors/Colorful-Neon"
-!# include "/home/andreasp/.colors/New-colorset"
-!# include "/home/andreasp/.colors/thayer"
-!# include "/home/andreasp/.colors/Warm-Colors"
-!# include "/home/andreasp/.colors/thayers-org"
-!# include "/home/andreasp/.colors/Molokai-MOD"
-!# include "/home/andreasp/.colors/Molokai-MOD-grey2"
-!# include "/home/andreasp/.colors/256-grayvim"
-# include "/home/andreasp/.colors/256-gr3y"
-!# include "/home/andreasp/.colors/mish-mash"
-!# include "/home/andreasp/.colors/vimbrant"
-!# include "/home/andreasp/.colors/cdwills"
-!# include "/home/andreasp/.colors/tvale"
-!# include "/home/andreasp/.colors/xterminus"
+  # include "/home/andreasp/.colors/256-gr3y"
+!  # include "/home/andreasp/.colors/Arthur-Colors"
+!  # include "/home/andreasp/.colors/Colorful-Neon"
+!  # include "/home/andreasp/.colors/New-colorset"
+!  # include "/home/andreasp/.colors/thayer"
+!  # include "/home/andreasp/.colors/Warm-Colors"
+!  # include "/home/andreasp/.colors/thayers-org"
+!  # include "/home/andreasp/.colors/Molokai-MOD"
+!  # include "/home/andreasp/.colors/Molokai-MOD-grey2"
+!  # include "/home/andreasp/.colors/256-grayvim"
+!  # include "/home/andreasp/.colors/mish-mash"
+!  # include "/home/andreasp/.colors/vimbrant"
+!  # include "/home/andreasp/.colors/cdwills"
+!  # include "/home/andreasp/.colors/tvale"
+!  # include "/home/andreasp/.colors/xterminus"
+! }}
 
 ! vim:fenc=utf-8:ft=xdefaults

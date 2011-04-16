@@ -14,7 +14,7 @@
 "
 "                              Settings for vi/vim.
 "
-"        And remember kids, opening text-files in nano will hurt them...
+"              And remember kids, opening text-files in nano will hurt them...
 "
 " __________________________________________________________________________________________
 "  This file is distributed "as it is", like it? Then use it in whole or parts of it but be
@@ -46,7 +46,7 @@ filetype plugin indent on
 set expandtab
 set backspace=indent,eol,start
 set shiftwidth=2
-set tabstop=2
+set tabstop=8
 set softtabstop=2
 set smarttab
 set autoindent
@@ -67,7 +67,6 @@ set ttyfast
 
 set laststatus=2
 set ruler
-set statusline=%<%F\ %h%m%r%=[TYPE=%Y\ %{&ff}]\ %=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l/%L,%c%V%)\ %P
 
 "set list
 "set listchars=tab:»·,trail:·
@@ -79,19 +78,29 @@ set history=50
 syntax on
 
 if &term == "linux"
-    set t_Co=8
+  set t_Co=8
+  set statusline=%<%F\ %h%m%r%=[TYPE=%Y\ %{&ff}]\ %=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l/%L,%c%V%)\ %P
 else
-    set t_Co=256
-    set background=dark
-    colorscheme 256-gr3y
-    " colorscheme digerati
-    " colorscheme molokai
+  set t_Co=256
+  set background=dark
+  colorscheme 256-gr3y
+  " colorscheme digerati
+  " colorscheme molokai
+
+  " Define some colors.
+  hi  User1   ctermfg=75    ctermbg=233     " blue
+  hi  User2   ctermfg=208   ctermbg=233     " Orange
+  hi  User3   ctermfg=160   ctermbg=233     " Red
+  hi  User4   ctermfg=247   ctermbg=233     " Grey
+
+  " set statusline=%4*%<%F\ %h%3*%m%4*%r%=%2*[%1*TYPE%2*=%1*%Y\ %{&ff}%2*]%1*\ %2*[%1*%=%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}%2*]%1*%k\ %-14.(%2*[%1*%l%2*/%1*%L%2*,%1*%c%V%2*]%)%4*\ %P
+  set statusline=%2*%<[%4*%F%2*]\ %h%3*%m%4*%r%=%2*[%1*TYPE%2*=%1*%Y\ %{&ff}%2*]%1*\ %2*[%1*%=%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}%2*]%1*%k\ %-14.(%2*[%4*%l%2*/%4*%L%2*,%4*%c%V%2*]%)%4*\ %2*[%4*%P%2*]%4*
 endif
 
 set noerrorbells
 
 
-let mapleader = '§'
+let mapleader   = '§'
 let g:mapleader = '§'
 
 " Automatically set current directory to file's location
@@ -114,7 +123,6 @@ nnoremap        <silent> <Space>  @=(foldlevel('.')?'za':'l')<CR>
 vnoremap        <Space>           zf
 
 
-
 " perl style # commenting
 autocmd     FileType php,yaml,sh  noremap <F5> :s/\v^(\s*)/\1# <CR>
 autocmd     FileType php,yaml,sh  noremap <F6> :s/\v^(\s*)# \1/ <CR>
@@ -133,11 +141,12 @@ au          BufNewFile,BufRead  *conkyrc    set filetype=conkyrc
 au          BufNewFile,BufRead  *.vorg      set filetype=vorg
 "autocmd    BufWritePost        *.sh !chmod +x %
 
+
 " Personal lua-support settings.
 let g:Lua_AuthorName          = 'Andreas Persson'
 let g:Lua_AuthorRef           = 'greyscale, grey'
 let g:Lua_Email               = 'andreas(at)greyscale(dot)se'
-""let g:Lua_Template_Directory  = '~/.vim/templates/'
+"let g:Lua_Template_Directory  = '~/.vim/templates/'
 
 " Personal bash-support settings.
 let g:BASH_AuthorName         = "Andreas Persson"
@@ -145,12 +154,12 @@ let g:BASH_AuthorRef          = "greyscale, grey"
 let g:BASH_Email              = "andreas(at)greyscale(dot)se"
 
 " VimWIKI settings
-let g:vimwiki_list            = [{  'path'  :  '~/Dropbox/VimWIKI' }]
+let g:vimwiki_list            = [{'path' : '~/Dropbox/VimWIKI'}]
 
 " Calendar-vim settings
 let g:calendar_list = [
-    \   {'name': 'Tasks', 'path': '~/Dropbox/Calendar/tasks', 'ext': 'task'},
-    \   {'name': 'Diary', 'path': '~/Dropbox/Calendar/diary', 'ext': 'diary'},
+  \   {'name': 'Tasks', 'path': '~/Dropbox/Calendar/tasks', 'ext': 'task'},
+  \   {'name': 'Diary', 'path': '~/Dropbox/Calendar/diary', 'ext': 'diary'},
 \ ]
 let g:calendar_current_idx = 1
 

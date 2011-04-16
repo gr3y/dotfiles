@@ -48,6 +48,8 @@ alias bxterm='xterm -bg black -fg grey'
 
 alias mc='mc -u'                            # Workaround for mc's sloow startup.
 
+alias ychup='yaourt -Syu -p --print-format "%r/%n %v %s"' # Sync repos and display available updates.
+
 # Pacman alias examples
 alias pacman='pacman-color'
 alias pacupg='sudo pacman -Syu'             # Synchronize with repositories before upgrading packages that are out of date on the local system.
