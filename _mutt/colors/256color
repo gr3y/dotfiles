@@ -13,7 +13,7 @@
 #===============================================================================
 #
 
-color   normal          color111        color235
+color   normal          color75         color235
 color   quoted          brightred       color235
 color   signature       color126        color235
 color   indicator       color208        color234
@@ -21,7 +21,7 @@ color   error           color160        color235
 color   status          color75         color233
 color   tree            color75         color235
 color   tilde           color246        color235
-color   message         color7         color235
+color   message         color76         color235
 color   markers         color76         color235
 color   attachment      color221        color235
 color   search          color160        color235
@@ -34,17 +34,18 @@ color   hdrdefault      color208        color235
 #color  header          color111        color235    "^(X-Original-To):"
 #color  header          color111        color235    "^(User-Agent|X-Editor):"
 
-color   index           color250        color235    "~A"        # All
+color   index           color75         color235    "~A"        # All
 color   index           color220        color235    "~T!~D"     # Tagged and not deleted.
 color   index           color88         color235    "~T~D"      # Tagged and deleted.
 color   index           color160        color235    "~D!~T"     # Deleted and not tagged.
 #color   index           green           color235    "~F"       # Flagged
 #color   index           color250        color235    "~O"       # Old
-color   index           color75         color235    "~U!~D!~T"  # Unread, not deleted and not tagged.
+color   index           color111        color235    "~U!~D!~T"  # Unread, not deleted and not tagged.
 
 
 #sidebar in mutt-ng
 color   sidebar_new     color124        color235
+color   sidebar_flagged green           color235
 
 #color   body            color81         color235    "(ftp|http)://\w[^ ]+[^.]"  # point out URLs
 #color   body            color128        color235    "[-.+\w]+@[-.\w]+[^.]"      # e-mail addresses
@@ -54,5 +55,8 @@ color   underline       green           color235
 # attributes when using a mono terminal
 #mono   header          underline       ^(From|Subject):
 #mono    quoted          bold
+
+# Border lines.
+# color body brightred default "( *[-+=#*~_]){6,}"
 
 # vim: filetype=muttrc

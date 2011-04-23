@@ -9,6 +9,7 @@ set mailcap_path="~/.mailcap"
 auto_view "text/html"
 #set implicit_autoview
 set move = no
+#set menu_scroll             # scroll in menus when traversing screen margins
 set sort=threads
 set pager_index_lines=20
 #set ascii_chars
@@ -18,7 +19,7 @@ set editor=vim
 set ispell="aspell -e -c"
 #set arrow_cursor
 set date_format="%Y-%m-%d %H:%M:%S"
-set index_format="%4C  [%3Z|%?X?A& ?|%S]  %-19.19[%Y-%m-%d %H:%M:%S]  [%-25.35F (%-30.30a)]  (%4c)  -  %s"
+set index_format="%4C  [%3Z|%?X?A& ?|%S]  %-19.19[%Y-%m-%d %H:%M:%S]  [%-35.35L (%-30.30a)]  -  %s %>  (%4c)  [%N]"
 set sidebar_visible="yes"
 set sidebar_width=20
 set sidebar_delim="│"
