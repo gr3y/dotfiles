@@ -31,7 +31,7 @@ NORMAL=$'\e[00m'
 
 for file in _*; do
   source_file=$cur_dir/$file
-  dot_file=$(echo $file | sed -e 's/^_/./')
+  dot_file=${file/_/.}
   target_file=$HOME/$dot_file
 
   # Check if the dot-file already exists.

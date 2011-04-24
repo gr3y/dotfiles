@@ -45,18 +45,13 @@ extract() {
   return $e
 }
 
-# Change preferences back to ~/.xtermcontrol defaults after 'su' session         
-#su() {
-#   command su "$@"
-#   xtermcontrol
-#}
 
-# Change preferences back to ~/.xtermcontrol defaults after 'ssh' session         
-#ssh() {
-#   command ssh "$@"
-#   /usr/bin/xtermcontrol
-#}
+# Sync repos and display available updates.
+function ychup() {
+  echo "Found upgrades for these packages:"
+  yaourt -Syu -p --print-format "%r/%n %v %s"
 
+}
 
 function pss() {
     ps -ef | grep "${USER}"

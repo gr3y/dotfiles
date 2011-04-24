@@ -19,7 +19,7 @@ beautiful.init("/home/andreasp/.config/awesome/grey/theme.lua")
 
 -- This is used later as tohe default terminal and editor to run.
 terminal = "uxterm -rightbar -sb"
-editor = os.getenv("EDITOR") or "editor"
+editor = "vim"
 editor_cmd = terminal .. " -e " .. editor
 filemanager = "/usr/bin/pcmanfm-mod"
 

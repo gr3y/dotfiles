@@ -34,6 +34,7 @@ set showmode
 set showcmd
 set magic
 set nobackup
+set splitbelow
 
 " These pathogen functions need to be invoked before "filetype plugin indent on" if
 " you want it to load ftdetect files.
@@ -67,10 +68,10 @@ set ttyfast
 
 set laststatus=2
 set ruler
-
-"set list
-"set listchars=tab:»·,trail:·
 "set showtabline=2
+
+set listchars=tab:»·,trail:·
+
 
 set history=50
 
@@ -93,7 +94,6 @@ else
   hi  User3   ctermfg=160   ctermbg=233     " Red
   hi  User4   ctermfg=247   ctermbg=233     " Grey
 
-  " set statusline=%4*%<%F\ %h%3*%m%4*%r%=%2*[%1*TYPE%2*=%1*%Y\ %{&ff}%2*]%1*\ %2*[%1*%=%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}%2*]%1*%k\ %-14.(%2*[%1*%l%2*/%1*%L%2*,%1*%c%V%2*]%)%4*\ %P
   set statusline=%2*%<[%4*%F%2*]\ %h%3*%m%4*%r%=%2*[%1*TYPE%2*=%1*%Y\ %{&ff}%2*]%1*\ %2*[%1*%=%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}%2*]%1*%k\ %-14.(%2*[%4*%l%2*/%4*%L%2*,%4*%c%V%2*]%)%4*\ %2*[%4*%P%2*]%4*
 endif
 
@@ -111,14 +111,17 @@ set hlsearch
 
 
 " Some key mappings
-map             <F2>              :nohlsearch<CR>                             " Turns of the current hlsearch
+map             <F2>              :nohlsearch<CR>                                 " Turns of the current hlsearch.
 set pastetoggle=<F3>
-nnoremap        <F3>              :set invpaste paste?<CR>                    " Toggle paste/nopaste
-nmap            <F4>              a<C-R>=strftime("%Y-%m-%d %H:%M")<CR><Esc>  " Insert timestamp.
+nnoremap        <F3>              :set invpaste paste?<CR>                        " Toggle paste/nopaste.
+nmap            <F4>              a<C-R>=strftime("%Y-%m-%d %H:%M")<CR><Esc>      " Insert timestamp.
 imap            <F4>              <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
-map             <F12>             <Esc>:NERDTreeToggle<CR>                    " Toggles NERDTree filebrowser
-nmap            <C-N><C-N>        :set invnumber<CR>
-nnoremap        <F10>             :0r ~/.vim/templates/grey-generic-fh.txt<cr>
+"               <F5>              Mapped for commenting lines, see below.
+"               <F6>              Mapped for uncommenting lines, see below.
+nnoremap        <F10>             :0r ~/.vim/templates/grey-generic-fh.txt<cr>    " Insert fileheader at top.
+map             <silent> <F11>    <ESC>:set list!<CR>                             " Toggle listing of whitespaces.
+map             <F12>             <Esc>:NERDTreeToggle<CR>                        " Toggles NERDTree filebrowser.
+nmap            <Leader>n         :set invnumber<CR>                              " Toggle linenumbering.
 nnoremap        <silent> <Space>  @=(foldlevel('.')?'za':'l')<CR>
 vnoremap        <Space>           zf
 

@@ -21,7 +21,7 @@ hi SpecialKey   ctermfg=27          ctermbg=None       cterm=Bold
 hi Directory    ctermfg=76          ctermbg=None       cterm=None
 hi ErrorMsg     ctermfg=124         ctermbg=White      cterm=None
 hi PreProc      ctermfg=246         ctermbg=None       cterm=Bold
-hi Search       ctermfg=160         ctermbg=232        cterm=Bold
+hi Search       ctermfg=154         ctermbg=None       cterm=Bold
 hi Type         ctermfg=75          ctermbg=None       cterm=Bold
 hi Statement    ctermfg=75          ctermbg=None       cterm=None
 hi Comment      ctermfg=244         ctermbg=None       cterm=None
@@ -29,8 +29,8 @@ hi Identifier   ctermfg=111         ctermbg=None       cterm=Bold
 hi DiffText     ctermfg=88          ctermbg=250        cterm=None
 hi Constant     ctermfg=208         ctermbg=None       cterm=None
 hi Todo         ctermfg=233         ctermbg=118        cterm=Bold
-hi Error        ctermfg=233         ctermbg=124        cterm=Bold
-hi Special      ctermfg=160         ctermbg=None       cterm=Bold
+hi Error        ctermfg=160         ctermbg=234        cterm=Bold
+hi Special      ctermfg=154         ctermbg=None       cterm=None
 hi Ignore       ctermfg=220         ctermbg=None       cterm=Bold
 hi Underline    ctermfg=244         ctermbg=None       cterm=None
 
