@@ -264,7 +264,31 @@ clientkeys = awful.util.table.join(
         function (c)
             c.maximized_horizontal = not c.maximized_horizontal
             c.maximized_vertical   = not c.maximized_vertical
-        end)
+        end),
+
+  awful.key({ modkey,           }, "i",
+    function (c)
+      local geom = c:geometry()
+      local t = ""
+
+      if c.class then t = t .. "Class: " .. c.class .. "\n" end
+      if c.instance then t = t .. "Instance: " .. c.instance .. "\n" end
+      if c.role then t = t .. "Role: " .. c.role .. "\n" end
+      if c.name then t = t .. "Name: " .. c.name .. "\n" end
+      if c.type then t = t .. "Type: " .. c.type .. "\n" end
+      if c.fullscreen then t = t .. "Fullscreen; yes\n" end
+      if c.maximized_horizontal then t = t .. "Maximized Horizontal: yes\n" end
+      if c.maximized_vertical then t = t .. "Maximized Vertical: yes\n" end
+
+      if geom.width and geom.height and geom.x and geom.y then
+        t = t .. "Dimensions: " .. "x:" .. geom.x .. " y:" .. geom.y .. " w:" .. geom.width .. " h:" .. geom.height
+      end
+
+      naughty.notify({
+        text = t,
+        timeout = 30,
+      })
+    end)
 )
 
 -- Compute the maximum number of digit we need, limited to 9
