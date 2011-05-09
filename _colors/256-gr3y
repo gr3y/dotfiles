@@ -32,12 +32,13 @@
 ! #6D8F2A
 ! #F63201
 
+! #FF0036
 
 !black 
 *color0:        #121212
 *color8:        #121212
 !red
-*color1:        #d70000
+*color1:        #c3193d
 *color9:        #e4186e
 !*color9:        #ff0056
 !*color9:        #870000

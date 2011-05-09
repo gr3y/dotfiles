@@ -94,7 +94,7 @@ else
   hi  User3   ctermfg=160   ctermbg=233     " Red
   hi  User4   ctermfg=247   ctermbg=233     " Grey
 
-  set statusline=%2*%<[%4*%F%2*]\ %h%3*%m%4*%r%=%2*[%1*TYPE%2*=%1*%Y\ %{&ff}%2*]%1*\ %2*[%1*%=%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}%2*]%1*%k\ %-14.(%2*[%4*%l%2*/%4*%L%2*,%4*%c%V%2*]%)%4*\ %2*[%4*%P%2*]%4*
+  set statusline=%2*%<[%4*%F%2*]\ %h%3*%m%4*%r%=%2*[%1*TYPE%2*=%1*%Y\ FORMAT%2*=%1*%{&ff}%2*]%1*\ %2*[%1*ENC%2*=%1*%=%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}%2*]%1*%k\ %-14.(%2*[%4*%l%2*/%4*%L%2*,%4*%c%V%2*]%)%4*\ %2*[%4*%P%2*]%4*
 endif
 
 set noerrorbells
@@ -156,15 +156,6 @@ let g:BASH_AuthorName         = "Andreas Persson"
 let g:BASH_AuthorRef          = "greyscale, grey"
 let g:BASH_Email              = "andreas(at)greyscale(dot)se"
 
-" VimWIKI settings
-let g:vimwiki_list            = [{'path' : '~/Dropbox/VimWIKI'}]
-
-" Calendar-vim settings
-let g:calendar_list = [
-  \   {'name': 'Tasks', 'path': '~/Dropbox/Calendar/tasks', 'ext': 'task'},
-  \   {'name': 'Diary', 'path': '~/Dropbox/Calendar/diary', 'ext': 'diary'},
-\ ]
-let g:calendar_current_idx = 1
 
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"

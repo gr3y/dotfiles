@@ -1,17 +1,27 @@
-#!/bin/bash - 
-#===============================================================================
+#!/bin/bash
 #
-#          FILE:  functions
-# 
-#         USAGE:  sourced from "/.bashrc
-# 
-#   DESCRIPTION:  Some useful functions.
-# 
-#        AUTHOR:  Andreas Persson andreas(at)greyscale(dot)se
-#       COMPANY: 
-#       CREATED:  02/20/2011 12:38:27 PM CET
+#   @@@@@@@@  @@@@@@@   @@@@@@@@  @@@ @@@   @@@@@@    @@@@@@@   @@@@@@   @@@       @@@@@@@@
+#  @@@@@@@@@  @@@@@@@@  @@@@@@@@  @@@ @@@  @@@@@@@   @@@@@@@@  @@@@@@@@  @@@       @@@@@@@@
+#  !@@        @@!  @@@  @@!       @@! !@@  !@@       !@@       @@!  @@@  @@!       @@!
+#  !@!        !@!  @!@  !@!       !@! @!!  !@!       !@!       !@!  @!@  !@!       !@!
+#  !@! @!@!@  @!@!!@!   @!!!:!     !@!@!   !!@@!!    !@!       @!@!@!@!  @!!       @!!!:!
+#  !!! !!@!!  !!@!@!    !!!!!:      @!!!    !!@!!!   !!!       !!!@!!!!  !!!       !!!!!:
+#  :!!   !!:  !!: :!!   !!:         !!:         !:!  :!!       !!:  !!!  !!:       !!:
+#  :!:   !::  :!:  !:!  :!:         :!:        !:!   :!:       :!:  !:!   :!:      :!:
+#   ::: ::::  ::   :::   :: ::::     ::    :::: ::    ::: :::  ::   :::   :: ::::   :: ::::
+#   :: :: :    :   : :  : :: ::      :     :: : :     :: :: :   :   : :  : :: : :  : :: ::
 #
-#===============================================================================
+#    .: FILE:          functions
+#    .: CREATED:       2011-02-20 12:38
+#    .: AUTHOR:        Andreas Persson (greyscale, grey)
+#    .: MAIL:          <andreas(at)greyscale(dot)se>
+#    .: VERSION:       1.0
+#    .: DESCRIPTION:   A collection of useful bash functions.
+#
+# __________________________________________________________________________________________
+#  This file is distributed "as it is", like it? Then use it in whole or parts of it but be
+#  minded that it comes with absolutely no warranty. But then again you got it for free..
+# __________________________________________________________________________________________
 #
 
 # File extraction need extglob
@@ -23,21 +33,21 @@ extract() {
   local e=0 i c
   for i; do
     if [[ -r $i ]]; then
-        c=''
-        case $i in
-          *.t@(gz|lz|xz|b@(2|z?(2))|a@(z|r?(.@(Z|bz?(2)|gz|lzma|xz)))))
-                 c='bsdtar xvf' ;;
-          *.7z)  c='7z x'       ;;
-          *.Z)   c='uncompress' ;;
-          *.bz2) c='bunzip2'    ;;
-          *.exe) c='cabextract' ;;
-          *.gz)  c='gunzip'     ;;
-          *.rar) c='unrar x'    ;;
-          *.xz)  c='unxz'       ;;
-          *.zip) c='unzip'      ;;
-          *)     echo "$0: cannot extract \`$i': Unrecognized file extension" >&2; e=1 ;;
-        esac
-        [[ $c ]] && command $c "$i"
+      c=''
+      case $i in
+        *.t@(gz|lz|xz|b@(2|z?(2))|a@(z|r?(.@(Z|bz?(2)|gz|lzma|xz)))))
+               c='bsdtar xvf' ;;
+        *.7z)  c='7z x'       ;;
+        *.Z)   c='uncompress' ;;
+        *.bz2) c='bunzip2'    ;;
+        *.exe) c='cabextract' ;;
+        *.gz)  c='gunzip'     ;;
+        *.rar) c='unrar x'    ;;
+        *.xz)  c='unxz'       ;;
+        *.zip) c='unzip'      ;;
+        *)     echo "$0: cannot extract \`$i': Unrecognized file extension" >&2; e=1 ;;
+      esac
+      [[ $c ]] && command $c "$i"
     else
         echo "$0: cannot extract \`$i': File is unreadable" >&2; e=2
     fi
@@ -53,6 +63,7 @@ function ychup() {
 
 }
 
+# Show processes for current user.
 function pss() {
     ps -ef | grep "${USER}"
 }
@@ -63,7 +74,7 @@ function findm() {
 
 
 function start_agent {
-     /usr/bin/ssh-agent | sed 's/^echo/#echo/' > ${SSH_ENV}
+   /usr/bin/ssh-agent | sed 's/^echo/#echo/' > ${SSH_ENV}
      chmod 600 ${SSH_ENV}
      . ${SSH_ENV} > /dev/null
      /usr/bin/ssh-add > /dev/null 2>&1;
@@ -71,8 +82,21 @@ function start_agent {
 
 function rmpath {
   if [ $1 ]; then
-    PATH=$(echo $PATH | sed -e "s;:\?$1;;" -e "s;$1:\?;;")
-    export PATh
+    declare -a pathArr
+    pathArr=$(echo $PATH | tr ":" "\n")
+    PATH2=""
+
+    for pdir in $pathArr; do
+      pdir=$(readlink -m ${pdir/\~/$HOME})
+      tdir=$(readlink -m ${1/\~/$HOME})
+
+      if [ $tdir != $pdir ]; then
+        PATH2=$pdir:$PATH2
+      fi
+    done
+
+    PATH=$PATH2
+    export PATH
   else
     echo "Usage: rmpath /path/to/remove/from/\$PATH"
   fi

@@ -22,8 +22,9 @@ set date_format="%Y-%m-%d %H:%M:%S"
 set index_format="%4C  [%3Z|%?X?A& ?|%S]  %-19.19[%Y-%m-%d %H:%M:%S]  [%-35.35L (%-30.30a)]  -  %s %>  (%4c)  [%N]"
 set sidebar_visible="yes"
 set sidebar_width=20
-set sidebar_delim="│"
+#set sidebar_delim="│"
 #set sidebar_delim='|'
+set sidebar_delim='┃'
 #set sidebar_sort=yes
 set nobeep
 set beep_new

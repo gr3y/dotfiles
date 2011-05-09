@@ -12,6 +12,7 @@ require("naughty")
 -- Load Freedesktop menu entries
 require('freedesktop.menu')
 
+
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 beautiful.init("/home/andreasp/.config/awesome/grey/theme.lua")
@@ -279,6 +280,7 @@ clientkeys = awful.util.table.join(
       if c.fullscreen then t = t .. "Fullscreen; yes\n" end
       if c.maximized_horizontal then t = t .. "Maximized Horizontal: yes\n" end
       if c.maximized_vertical then t = t .. "Maximized Vertical: yes\n" end
+      if c.above then t = t .. "Above: yes\n" end
 
       if geom.width and geom.height and geom.x and geom.y then
         t = t .. "Dimensions: " .. "x:" .. geom.x .. " y:" .. geom.y .. " w:" .. geom.width .. " h:" .. geom.height
@@ -286,7 +288,7 @@ clientkeys = awful.util.table.join(
 
       naughty.notify({
         text = t,
-        timeout = 30,
+        timeout = 15,
       })
     end)
 )
@@ -407,26 +409,24 @@ end)
 client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
+
 -- No border if maximized or the only window showing.
 -- Set own_window_type override in .conkyrc or it will be counted as a client
--- A ugly beast to needed to be fought one day.§
 for s = 1, screen.count() do screen[s]:add_signal("arrange", function ()
-        local clients = awful.client.visible(s)
+  local clients = awful.client.visible(s)
 
-        for _, c in pairs(clients) do
-            if awful.client.floating.get(c) then
-                c.border_width = beautiful.border_width
-            elseif (c.maximized_horizontal and c.maximized_vertical) or c.fullscreen then
-                c.border_width = 0
-            elseif c.name:find('VLC') or c.class:find('Eog') then
-                -- :WORKAROUND:02/28/2011 11:05:59 PM:greyscale:  if Vlc.. don't touch..
-            elseif #clients == 1 then
-                c.border_width = 0
-            else
-                c.border_width = beautiful.border_width
-            end
-        end
-    end)
+  for _, c in pairs(clients) do
+      if c.fullscreen then
+        c.border_width = 0; c.above = true; c.fullscreen = true
+      elseif awful.client.floating.get(c) then
+        c.border_width = beautiful.border_width
+      elseif (c.maximized_horizontal and c.maximized_vertical) or #clients == 1 then
+        c.border_width = 0
+      else
+        c.border_width = beautiful.border_width
+      end
+    end
+  end)
 end
 -- }}}
 
@@ -436,7 +436,7 @@ local r = require("runonce")
 r.run("/home/andreasp/.bin/fixCaps.sh")
 r.run("/home/andreasp/.bin/fixJava.GUI.sh")
 r.run("/home/andreasp/.bin/fixIEC958.sh")
-r.run("/usr/bin/gnome-volume-control-applet &")
+r.run("/usr/bin/obmixer &")
 r.run("/usr/bin/conky")
 r.run("/usr/bin/tilda")
 r.run("/home/andreasp/.bin/mouseMod.sh")

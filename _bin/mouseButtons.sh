@@ -32,25 +32,25 @@
 
 
 cur=`xdotool getwindowfocus`
-name=`xprop -id $cur WM_CLASS | cut -d" " -f3 | sed -e 's/,//g' | sed -e 's/"//g'`
+class=`xprop -id $cur WM_CLASS | cut -d" " -f3 | sed -e 's/,//g' | sed -e 's/"//g'`
 
 
 case $1 in
   "8")
     # Button 8
-    case $name in
+    case $class in
       "eog" ) `xdotool key --window $cur Prior` ;;
+      "viewnior" ) `xdotool key --window $cur Prior` ;;
       "Navigator" ) `xdotool key --window $cur ctrl+minus` ;;
-      #"Navigator" ) `xdotool key --window $cur ctrl` ;; # Stop ff from going back/forward.
       "evince" ) `xdotool key --window $cur ctrl+minus` ;;
     esac
   ;;
   "9" )
     # Button 9
-    case $name in
+    case $class in
       "eog" ) `xdotool key --window $cur Next` ;;
+      "viewnior" ) `xdotool key --window $cur Next` ;;
       "Navigator" ) `xdotool key --window $cur ctrl+plus` ;;
-      #"Navigator" ) `xdotool key --window $cur ctrl` ;; # Stop ff from going back/forward.
       "evince" ) `xdotool key --window $cur ctrl+plus` ;;
     esac
   ;;
