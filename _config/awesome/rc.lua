@@ -1,3 +1,29 @@
+--
+--   @@@@@@@@  @@@@@@@   @@@@@@@@  @@@ @@@   @@@@@@    @@@@@@@   @@@@@@   @@@       @@@@@@@@
+--  @@@@@@@@@  @@@@@@@@  @@@@@@@@  @@@ @@@  @@@@@@@   @@@@@@@@  @@@@@@@@  @@@       @@@@@@@@
+--  !@@        @@!  @@@  @@!       @@! !@@  !@@       !@@       @@!  @@@  @@!       @@!
+--  !@!        !@!  @!@  !@!       !@! @!!  !@!       !@!       !@!  @!@  !@!       !@!
+--  !@! @!@!@  @!@!!@!   @!!!:!     !@!@!   !!@@!!    !@!       @!@!@!@!  @!!       @!!!:!
+--  !!! !!@!!  !!@!@!    !!!!!:      @!!!    !!@!!!   !!!       !!!@!!!!  !!!       !!!!!:
+--  :!!   !!:  !!: :!!   !!:         !!:         !:!  :!!       !!:  !!!  !!:       !!:
+--  :!:   !::  :!:  !:!  :!:         :!:        !:!   :!:       :!:  !:!   :!:      :!:
+--   ::: ::::  ::   :::   :: ::::     ::    :::: ::    ::: :::  ::   :::   :: ::::   :: ::::
+--   :: :: :    :   : :  : :: ::      :     :: : :     :: :: :   :   : :  : :: : :  : :: ::
+--
+--    .: FILE:          rc.lua
+--    .: CREATED:       2011-05-31 20:50
+--    .: AUTHOR:        Andreas Persson (greyscale, grey)
+--    .: MAIL:          <andreas(at)greyscale(dot)se>
+--    .: VERSION:       1.0
+--    .: DESCRIPTION:   Settings for the awesome wm awesome...
+--
+-- __________________________________________________________________________________________
+--  This file is distributed "as it is", like it? Then use it in whole or parts of it but be
+--  minded that it comes with absolutely no warranty. But then again you got it for free..
+-- __________________________________________________________________________________________
+--
+
+
 -- Standard awesome library
 require("awful")
 require("awful.autofocus")
@@ -149,7 +175,7 @@ for s = 1, screen.count() do
                                           end, mytasklist.buttons)
 
     -- Create the wibox
-    mywibox[s] = awful.wibox({ position = "top", screen = s })
+    mywibox[s] = awful.wibox({ position = "top", screen = s, height = 15 })
     -- Add widgets to the wibox - order matters
     mywibox[s].widgets = {
         {
@@ -164,7 +190,7 @@ for s = 1, screen.count() do
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
     }
-    mystatusbar = awful.wibox({ position = "bottom", screen = s, ontop = false, width = 1, height = 16 })
+    mystatusbar = awful.wibox({ position = "bottom", screen = s, ontop = false, width = 1, height = 15 })
 end
 -- }}}
 

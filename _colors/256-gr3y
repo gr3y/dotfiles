@@ -29,10 +29,7 @@
 *color0:            #121212
 *color8:            #1c1c1c
 !red            
-!*color1:            #A0113A
-!*color1:            #c3193d
 *color1:            #ff0056
-!*color9:            #e4186e
 *color9:            #ff00ac
 !green           
 *color2:            #a0eb01

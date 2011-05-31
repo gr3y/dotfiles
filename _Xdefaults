@@ -21,18 +21,11 @@
 
 !{{
 ! Font settings
-  Xft.dpi:        96
-  Xft.antialias:  true
-  Xft.rgba:       rgb
-  Xft.hinting:    true
-  Xft.hintstyle:  hintslight
-!  Xft.autohint:                   0
-!  Xft.lcdfilter:                  lcddefault
-!  Xft.hintstyle:                  hintfull
-!  Xft.hinting:                    1
-!  Xft.antialias:                  1
-!  Xft.rgba:                       rgb
-!  Xft.dpi:                        96
+  Xft.dpi:                        96
+  Xft.antialias:                  true
+  Xft.rgba:                       rgb
+  Xft.hinting:                    true
+  Xft.hintstyle:                  hintslight
 !}}
 
 
@@ -47,16 +40,7 @@
   xterm*dynamiccolors:            true
   xterm*saveLines:                3000
   xterm*termName:                 xterm-256color
-  xterm*faceName:                 gr3y:pixelsize=11
-!  xterm*faceName:                 Andale Mono Bold:pixelsize=10
-! xtermloginShell:                True
-!  xterm*font:                     -misc-fixed-medium-r-semicondensed-*-12-*-*-*-*-*-iso10646-1
-!  xterm*faceName:                 Envy Code:pixelsize=10
-!  xterm*faceName:                 Inconsolata:pixelsize=12
-!  xterm*faceName:                 Liberation Mono:pixelsize=10
-!  xterm*faceName:                 Monaco:pixelsize=10
-! xterm*faceName:                 Bitstream Vera Sans Mono:pixelsize=10
-! xterm*faceName:                 Terminus (TTF):style=Medium:pixelsize=12
+  xterm*faceName:                 gr3y:pixelsize=10
 !}}
 
 
