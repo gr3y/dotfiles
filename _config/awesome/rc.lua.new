@@ -15,7 +15,7 @@ require('freedesktop.menu')
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 -- beautiful.init("/usr/share/awesome/themes/default/theme.lua")
-beautiful.init("/home/andreasp/.config/awesome/grey-dev/theme.lua")
+beautiful.init("/home/andreasp/.config/awesome/grey/theme.lua")
 -- beautiful.init("/usr/share/awesome/themes/bamboo/theme.lua")
 
 
@@ -353,6 +353,9 @@ awful.rules.rules = {
 client.add_signal("manage", function (c, startup)
     -- Add a titlebar
     -- awful.titlebar.add(c, { modkey = modkey })
+    if beautiful.tasklist_square then
+      c.icon = image(beautiful.tasklist_square)
+    end
 
     -- Enable sloppy focus
     c:add_signal("mouse::enter", function(c)
@@ -380,29 +383,21 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 
 -- No border if maximized or the only window showing.
 -- Set own_window_type override in .conkyrc or it will be counted as a client
- for s = 1, screen.count() do screen[s]:add_signal("arrange", function ()
-        local clients = awful.client.visible(s)
+for s = 1, screen.count() do screen[s]:add_signal("arrange", function ()
+  local clients = awful.client.visible(s)
 
-        for _, c in pairs(clients) do
-            if c.name:find('VLC') then -- :WORKAROUND:02/28/2011 11:05:59 PM:greyscale:  if Vlc.. don't touch..
-                return
-            end
-
-            if awful.client.floating.get(c) then
-                c.border_color = beautiful.border_normal
-                c.border_width = beautiful.border_width
-            elseif (c.maximized_horizontal and c.maximized_vertical) or c.fullscreen then
-                c.border_color = beautiful.border_normal
-                c.border_width = 0
-            elseif #clients == 1 then
-                c.border_color = beautiful.border_normal
-                c.border_width = 0
-            else
-                c.border_color = beautiful.border_normal
-                c.border_width = beautiful.border_width
-            end
-        end
-    end)
+  for _, c in pairs(clients) do
+      if c.fullscreen then
+        c.border_width = 0; c.above = true; c.fullscreen = true
+      elseif awful.client.floating.get(c) and not (c.maximized_horizontal and c.maximized_vertical) then
+        c.border_width = beautiful.border_width
+      elseif (c.maximized_horizontal and c.maximized_vertical) or #clients == 1 then
+        c.border_width = 0
+      else
+        c.border_width = beautiful.border_width
+      end
+    end
+  end)
 end
 -- }}}
 

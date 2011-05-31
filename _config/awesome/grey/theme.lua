@@ -29,10 +29,10 @@ theme = {}
 
 theme.font          = "Monaco 7"
 
-theme.bg_normal     = "#212121"
-theme.bg_focus      = "#313131"
-theme.bg_urgent     = "#313131"
-theme.bg_minimize   = "#191919"
+theme.bg_normal     = "#121212"
+theme.bg_focus      = "#212121"
+theme.bg_urgent     = "#212121"
+theme.bg_minimize   = "#121212"
 
 theme.fg_normal     = "#5fafff"
 theme.fg_focus      = "#ff8700"
@@ -42,7 +42,7 @@ theme.fg_minimize   = "#ababab"
 theme.border_width  = "1"
 theme.border_normal = "#515151"
 theme.border_focus  = "#ff8700"
-theme.border_marked = "#91231c"
+theme.border_marked = "#ff0056"
 
 -- There are other variable sets
 -- overriding the default one when

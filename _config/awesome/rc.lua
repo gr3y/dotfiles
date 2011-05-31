@@ -74,7 +74,7 @@ myawesomemenu = {
 
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "Misc", menu_items },
+                                    { "Apps", menu_items },
                                     { "open terminal", terminal }
                                   }
                         })
@@ -85,7 +85,7 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 
 -- {{{ Wibox
 -- Create a textclock widget
-mytextclock = awful.widget.textclock({ align = "right" })
+-- mytextclock = awful.widget.textclock({ align = "right" })
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -107,10 +107,10 @@ mytasklist = {}
 mytasklist.buttons = awful.util.table.join(
                      awful.button({ }, 1, function (c)
                                               if not c:isvisible() then
-                                                  awful.tag.viewonly(c:tags()[1])
+                                                awful.tag.viewonly(c:tags()[1])
                                               end
-                                              client.focus = c
-                                              c:raise()
+                                                client.focus = c
+                                                c:raise()
                                           end),
                      awful.button({ }, 3, function ()
                                               if instance then
@@ -159,11 +159,12 @@ for s = 1, screen.count() do
             layout = awful.widget.layout.horizontal.leftright
         },
         mylayoutbox[s],
-        mytextclock,
+--        mytextclock,
         s == 1 and mysystray or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
     }
+    mystatusbar = awful.wibox({ position = "bottom", screen = s, ontop = false, width = 1, height = 16 })
 end
 -- }}}
 
@@ -183,12 +184,12 @@ globalkeys = awful.util.table.join(
 
     awful.key({ modkey,           }, "j",
         function ()
-            awful.client.focus.byidx( 1)
+            awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
         end),
     awful.key({ modkey,           }, "k",
         function ()
-            awful.client.focus.byidx(-1)
+            awful.client.focus.byidx(1)
             if client.focus then client.focus:raise() end
         end),
     awful.key({ modkey,           }, "w", function () mymainmenu:show(true)        end),
@@ -224,24 +225,23 @@ globalkeys = awful.util.table.join(
                 end
             end
         end),
-
+    
     -- Standard program
-    awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
-    awful.key({ modkey, "Control" }, "r", awesome.restart),
-    awful.key({ modkey, "Shift"   }, "q", awesome.quit),
-
-    awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
-    awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
-    awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1)      end),
-    awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1)      end),
-    awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1)         end),
-    awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1)         end),
-    awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
-    awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
-    awful.key({ modkey,           }, "e",     function () awful.util.spawn(filemanager) end),
+    awful.key({ modkey,           }, "Return",  function () awful.util.spawn(terminal)    end),
+    awful.key({ modkey, "Control" }, "r",       awesome.restart                              ),
+    awful.key({ modkey, "Shift"   }, "q",       awesome.quit                                 ),
+    awful.key({ modkey,           }, "l",       function () awful.tag.incmwfact( 0.05)    end),
+    awful.key({ modkey,           }, "h",       function () awful.tag.incmwfact(-0.05)    end),
+    awful.key({ modkey, "Shift"   }, "h",       function () awful.tag.incnmaster( 1)      end),
+    awful.key({ modkey, "Shift"   }, "l",       function () awful.tag.incnmaster(-1)      end),
+    awful.key({ modkey, "Control" }, "h",       function () awful.tag.incncol( 1)         end),
+    awful.key({ modkey, "Control" }, "l",       function () awful.tag.incncol(-1)         end),
+    awful.key({ modkey,           }, "space",   function () awful.layout.inc(layouts,  1) end),
+    awful.key({ modkey, "Shift"   }, "space",   function () awful.layout.inc(layouts, -1) end),
+    awful.key({ modkey,           }, "e",       function () awful.util.spawn(filemanager) end),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
+    awful.key({ modkey },            "r",       function () mypromptbox[mouse.screen]:run() end),
 
     awful.key({ modkey },            "x",
               function ()
@@ -256,7 +256,7 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
-    awful.key({ modkey, "Shift"   }, "t",      function (c) c.ontop = not c.ontop end           ),
+    awful.key({ modkey, "Shift"   }, "t",      function (c) c.ontop = not c.ontop            end),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
     awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw()                       end),
@@ -384,6 +384,11 @@ awful.rules.rules = {
 client.add_signal("manage", function (c, startup)
     -- Add a titlebar
     -- awful.titlebar.add(c, { modkey = modkey })
+    
+    -- Replace clients icon with a little "bar".
+    if beautiful.tasklist_square then
+      c.icon = image(beautiful.tasklist_square)
+    end
 
     -- Enable sloppy focus
     c:add_signal("mouse::enter", function(c)
@@ -418,7 +423,7 @@ for s = 1, screen.count() do screen[s]:add_signal("arrange", function ()
   for _, c in pairs(clients) do
       if c.fullscreen then
         c.border_width = 0; c.above = true; c.fullscreen = true
-      elseif awful.client.floating.get(c) then
+      elseif awful.client.floating.get(c) and not (c.maximized_horizontal and c.maximized_vertical) then
         c.border_width = beautiful.border_width
       elseif (c.maximized_horizontal and c.maximized_vertical) or #clients == 1 then
         c.border_width = 0
@@ -436,7 +441,7 @@ local r = require("runonce")
 r.run("/home/andreasp/.bin/fixCaps.sh")
 r.run("/home/andreasp/.bin/fixJava.GUI.sh")
 r.run("/home/andreasp/.bin/fixIEC958.sh")
-r.run("/usr/bin/obmixer &")
+r.run("/usr/bin/pnmixer &")
 r.run("/usr/bin/conky")
 r.run("/usr/bin/tilda")
 r.run("/home/andreasp/.bin/mouseMod.sh")

@@ -56,7 +56,7 @@ export PAGER='less'
 export LESS='-iR'
 #export LESSOPEN='|/usr/bin/lesspipe.sh %s 2>&-'
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
-SSH_ENV=$HOME/.ssh/environment
+export SSH_ENV=$HOME/.ssh/environment
 
 # Disable XON/XOFF flow control (^s/^q)
 stty -ixon

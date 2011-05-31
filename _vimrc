@@ -57,6 +57,10 @@ set nowrap
 set textwidth=120
 set colorcolumn=+1
 
+" Undo files
+silent! set undodir=~/.local/tmp/
+silent! set undofile
+
 " Folding settings
 set foldmethod=indent
 set foldnestmax=10

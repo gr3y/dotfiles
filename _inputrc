@@ -8,8 +8,8 @@ set echo-control-characters off
 # Ctrl+Alt+l -> runs lines and pipes it to less
 "\e\C-l":"\C-e | less\C-m"
 
-# Alt+s -> wraps line in su -c
-"\es":"\C-a su -c '\C-e'\C-m"
+# Alt+s -> wraps line in sudo
+"\es":"\C-a sudo '\C-e'\C-m"
 
 # Alt+Ctrl+b -> Send to background and pipe all output to /dev/null
 "\e\C-b":"\C-e > /dev/null 2>&1 &\C-m"

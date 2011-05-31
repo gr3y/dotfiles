@@ -42,7 +42,7 @@ case $1 in
       "eog" ) `xdotool key --window $cur Prior` ;;
       "viewnior" ) `xdotool key --window $cur Prior` ;;
       "Navigator" ) `xdotool key --window $cur ctrl+minus` ;;
-      "evince" ) `xdotool key --window $cur ctrl+minus` ;;
+      "evince" ) `xdotool windowactivate $cur && xdotool key ctrl+minus --window $cur` ;;
     esac
   ;;
   "9" )
@@ -51,7 +51,7 @@ case $1 in
       "eog" ) `xdotool key --window $cur Next` ;;
       "viewnior" ) `xdotool key --window $cur Next` ;;
       "Navigator" ) `xdotool key --window $cur ctrl+plus` ;;
-      "evince" ) `xdotool key --window $cur ctrl+plus` ;;
+      "evince" ) `xdotool windowactivate $cur && xdotool key ctrl+plus --window $cur` ;;
     esac
   ;;
 esac
