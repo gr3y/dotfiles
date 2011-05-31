@@ -16,6 +16,8 @@
 --      .: MAIL:          <andreas(at)greyscale(dot)se>
 --      .: VERSION:       1.0
 --      .: DESCRIPTION:   My theme for Awesome.
+--                        Most icons found a https://awesome.naquadah.org/wiki/Nice_Icons
+--                        with some additions made by freakAh.
 --
 -- __________________________________________________________________________________________
 --  This file is distributed "as it is", like it? Then use it in whole or parts of it but be
