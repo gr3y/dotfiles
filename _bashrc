@@ -43,8 +43,6 @@ export HISTIGNORE="&:ls:[bf]g:exit"               # do not store these lines
 #export PROMPT_COMMAND="history -n; history -a"   # update & re-read histfile after every cmd so terminals will share
 
 
-export PATH=/home/andreasp/.bin:/home/andreasp/apps/bin:$PATH
-
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/bash lesspipe)"
 

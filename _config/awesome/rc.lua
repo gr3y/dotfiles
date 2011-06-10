@@ -118,6 +118,7 @@ mysystray = widget({ type = "systray" })
 
 -- Create a wibox for each screen and add it
 mywibox = {}
+mystatusbar = {}
 mypromptbox = {}
 mylayoutbox = {}
 mytaglist = {}
@@ -175,7 +176,8 @@ for s = 1, screen.count() do
                                           end, mytasklist.buttons)
 
     -- Create the wibox
-    mywibox[s] = awful.wibox({ position = "top", screen = s, height = 15 })
+    mywibox[s] = awful.wibox({ position = "top", screen = s, ontop = false, height = 15 })
+ 
     -- Add widgets to the wibox - order matters
     mywibox[s].widgets = {
         {
@@ -190,7 +192,7 @@ for s = 1, screen.count() do
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
     }
-    mystatusbar = awful.wibox({ position = "bottom", screen = s, ontop = false, width = 1, height = 15 })
+    mystatusbar[s] = awful.wibox({ position = "bottom", screen = s, ontop = false, width = 1, height = 15 })
 end
 -- }}}
 
@@ -448,7 +450,7 @@ for s = 1, screen.count() do screen[s]:add_signal("arrange", function ()
 
   for _, c in pairs(clients) do
       if c.fullscreen then
-        c.border_width = 0; c.above = true; c.fullscreen = true
+        c.border_width = 0; c.above = true; c.fullscreen = true;
       elseif awful.client.floating.get(c) and not (c.maximized_horizontal and c.maximized_vertical) then
         c.border_width = beautiful.border_width
       elseif (c.maximized_horizontal and c.maximized_vertical) or #clients == 1 then
@@ -468,7 +470,8 @@ r.run("/home/andreasp/.bin/fixCaps.sh")
 r.run("/home/andreasp/.bin/fixJava.GUI.sh")
 r.run("/home/andreasp/.bin/fixIEC958.sh")
 r.run("/usr/bin/pnmixer &")
-r.run("/usr/bin/conky")
+r.run("/usr/bin/conky -c /home/andreasp/.conkyrc-left")
+r.run("/usr/bin/conky -c /home/andreasp/.conkyrc-right")
 r.run("/usr/bin/tilda")
 r.run("/home/andreasp/.bin/mouseMod.sh")
 -- r.run("/usr/bin/thunar --daemon &")

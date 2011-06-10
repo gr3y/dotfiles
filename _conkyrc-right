@@ -1,0 +1,67 @@
+#
+#   @@@@@@@@  @@@@@@@   @@@@@@@@  @@@ @@@   @@@@@@    @@@@@@@   @@@@@@   @@@       @@@@@@@@
+#  @@@@@@@@@  @@@@@@@@  @@@@@@@@  @@@ @@@  @@@@@@@   @@@@@@@@  @@@@@@@@  @@@       @@@@@@@@
+#  !@@        @@!  @@@  @@!       @@! !@@  !@@       !@@       @@!  @@@  @@!       @@!
+#  !@!        !@!  @!@  !@!       !@! @!!  !@!       !@!       !@!  @!@  !@!       !@!
+#  !@! @!@!@  @!@!!@!   @!!!:!     !@!@!   !!@@!!    !@!       @!@!@!@!  @!!       @!!!:!
+#  !!! !!@!!  !!@!@!    !!!!!:      @!!!    !!@!!!   !!!       !!!@!!!!  !!!       !!!!!:
+#  :!!   !!:  !!: :!!   !!:         !!:         !:!  :!!       !!:  !!!  !!:       !!:
+#  :!:   !::  :!:  !:!  :!:         :!:        !:!   :!:       :!:  !:!   :!:      :!:
+#   ::: ::::  ::   :::   :: ::::     ::    :::: ::    ::: :::  ::   :::   :: ::::   :: ::::
+#   :: :: :    :   : :  : :: ::      :     :: : :     :: :: :   :   : :  : :: : :  : :: ::
+#
+#    .: FILE:          .conkyrc
+#    .: CREATED:       2011-05-31 15:37
+#    .: AUTHOR:        Andreas Persson (greyscale, grey)
+#    .: MAIL:          <andreas(at)greyscale(dot)se>
+#    .: VERSION:       1.0
+#    .: DESCRIPTION:   16 pixel conkybar at the bottom of the right screen.
+#
+# __________________________________________________________________________________________
+#  This file is distributed "as it is", like it? Then use it in whole or parts of it but be
+#  minded that it comes with absolutely no warranty. But then again you got it for free..
+# __________________________________________________________________________________________
+#
+
+
+double_buffer yes
+own_window  yes
+own_window_transparent no
+own_window_type override
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+background yes
+draw_borders no
+draw_shades no
+use_spacer left
+short_units yes
+update_interval 1
+uppercase no
+
+#position
+gap_x 0
+gap_y 0
+alignment bottom_right
+minimum_size 1914
+
+#colour
+default_color 5fafff
+own_window_colour 121212
+color1 ff8700
+color2 5fafff
+
+#font
+use_xft yes
+xftfont gr3y:size=8
+
+TEXT
+${color1}.:${color}${nodename} \
+    ${color1}.:${color}${uptime} \
+    ${alignc}${color1}.:${color}loadavg: ${loadavg 2} ${loadgraph 10,50 color1 color2 -t} \
+    ${color1}.:${color}CPU: ${cpu}% ${cpugraph 10,50 color1 color2 -t} \
+    ${color1}.:${color}RAM: ${memperc}% ${memgraph 10,50 color1 color2 -t} \
+    ${color1}.:${color}SWAP:${swapperc}% ${swapbar 10,50 color1 color2 -t} \
+    ${color1}.:${color}I/O: ${diskio} ${diskiograph 10,50 color1 color2 -t} \
+    ${color1}.:${color}eth0 UP: ${upspeed} ${upspeedgraph eth0 10,50 color1 color2 -t} \
+    ${color1}.:${color}eth0 DOWN: ${downspeed} ${downspeedgraph eth0 10,50 color1 color2 -t} \
+    ${alignr}${color1}.:${color}${time %Y-%m-%d %A} \
+    ${color1}.:${color}${time %H:%M:%S} 

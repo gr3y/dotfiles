@@ -26,6 +26,8 @@
   Xft.rgba:                       rgb
   Xft.hinting:                    true
   Xft.hintstyle:                  hintslight
+! Xft.hintstyle:                  hintfull
+!  Xft.lcdfilter:                  lcdlegacy
 !}}
 
 
