@@ -100,7 +100,7 @@ theme.titlebar_maximized_button_normal_active = cfg_path .. "/grey/titlebar/maxi
 theme.titlebar_maximized_button_focus_active  = cfg_path .. "/grey/titlebar/maximized_focus_active.png"
 
 -- You can use your own command to set your wallpaper
-theme.wallpaper_cmd = { "awsetbg -f " .. cfg_path .. "/grey/background/bg2.png" }
+theme.wallpaper_cmd = { "awsetbg -u feh -t " .. cfg_path .. "/grey/background/bg2.png" }
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = cfg_path .. "/grey/layouts2/fairh.png"

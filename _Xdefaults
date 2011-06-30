@@ -42,7 +42,8 @@
   xterm*dynamiccolors:            true
   xterm*saveLines:                3000
   xterm*termName:                 xterm-256color
-  xterm*faceName:                 gr3y:pixelsize=10
+  !xterm*faceName:                 gr3y:pixelsize=10
+  xterm*font:                     -*-terminus-*-*-*-*-12-*-*-*-*-*-iso10646-*
 !}}
 
 

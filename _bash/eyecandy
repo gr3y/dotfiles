@@ -42,4 +42,22 @@ if [ -e ~/.dircolors-256grayvim ]; then
     eval $(/bin/dircolors -b ~/.dircolors-256grayvim)
 fi
 
+# Change console color theme.
+echo -en "\e]P0121212"
+echo -en "\e]P1ff0056"
+echo -en "\e]P2a0eb01"
+echo -en "\e]P3fcf330"
+echo -en "\e]P45fafff"
+echo -en "\e]P5ff8700"
+echo -en "\e]P6808080"
+echo -en "\e]P7e4e4e4"
+echo -en "\e]P81c1c1c"
+echo -en "\e]P9ff00ac"
+echo -en "\e]Pa5fd700"
+echo -en "\e]Pbffd700"
+echo -en "\e]Pc87afff"
+echo -en "\e]Pdff5400"
+echo -en "\e]Pe5fffff"
+echo -en "\e]Pfe4e4e4"
+
 # vim:fenc=utf-8:ft=sh

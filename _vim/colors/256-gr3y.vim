@@ -35,7 +35,7 @@ let python_highlight_all = 1
 let c_gnu = 1
 
 
-hi Normal          ctermfg=253    ctermbg=234    cterm=None
+hi Normal          ctermfg=253    ctermbg=233    cterm=None
 hi Cursor          ctermfg=160    ctermbg=None   cterm=None
 hi SpecialKey      ctermfg=27     ctermbg=None   cterm=Bold
 hi Directory       ctermfg=76     ctermbg=None   cterm=None
@@ -49,7 +49,7 @@ hi Identifier      ctermfg=111    ctermbg=None   cterm=Bold
 hi DiffText        ctermfg=88     ctermbg=250    cterm=None
 hi Constant        ctermfg=208    ctermbg=None   cterm=None
 hi Todo            ctermfg=232    ctermbg=118    cterm=Bold
-hi Error           ctermfg=160    ctermbg=233    cterm=Bold
+hi Error           ctermfg=160    ctermbg=232    cterm=Bold
 hi Special         ctermfg=154    ctermbg=None   cterm=None
 hi Ignore          ctermfg=220    ctermbg=None   cterm=Bold
 hi Underline       ctermfg=244    ctermbg=None   cterm=None
@@ -58,18 +58,18 @@ hi Underline       ctermfg=244    ctermbg=None   cterm=None
 hi MatchParen      ctermfg=160    ctermbg=None   cterm=Bold
 hi FoldColumn      ctermfg=75     ctermbg=232    cterm=Bold
 hi Folded          ctermfg=75     ctermbg=232    cterm=Bold
-hi StatusLineNC    ctermfg=247    ctermbg=233    cterm=None
+hi StatusLineNC    ctermfg=247    ctermbg=232    cterm=None
 hi StatusLine      ctermfg=247    ctermbg=232    cterm=Bold
-hi VertSplit       ctermfg=247    ctermbg=233    cterm=Bold
-hi ColorColumn     ctermbg=233
+hi VertSplit       ctermfg=247    ctermbg=232    cterm=Bold
+hi ColorColumn     ctermbg=232
                    
 hi LineNr          ctermfg=238    ctermbg=244    cterm=Bold
-hi LineNr          ctermfg=247    ctermbg=234    cterm=Bold
+hi LineNr          ctermfg=247    ctermbg=233    cterm=Bold
 hi NonText         ctermfg=27     ctermbg=None   cterm=Bold
                    
                    
 hi Pmenu           ctermfg=75     ctermbg=232    cterm=None
-hi PmenuSel        ctermfg=208    ctermbg=233    cterm=Bold
+hi PmenuSel        ctermfg=208    ctermbg=232    cterm=Bold
 hi PmenuSbar       ctermfg=232    ctermbg=232    cterm=None
-hi PmenuThumb      ctermfg=233    ctermbg=233    cterm=None
+hi PmenuThumb      ctermfg=232    ctermbg=232    cterm=None
 

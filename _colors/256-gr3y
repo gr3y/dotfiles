@@ -26,32 +26,32 @@
 !
 
 !black 
-*color0:            #121212
-*color8:            #1c1c1c
+*.color0:            #080808
+*.color8:            #121212
 !red            
-*color1:            #ff0056
-*color9:            #ff00ac
+*.color1:            #ff0056
+*.color9:            #ff00ac
 !green           
-*color2:            #a0eb01
-*color10:           #5fd700
+*.color2:            #a0eb01
+*.color10:           #5fd700
 !yellow          
-*color3:            #fcf330
-*color11:           #ffd700
+*.color3:            #fcf330
+*.color11:           #ffd700
 !blue            
-*color4:            #5fafff
-*color12:           #87afff
+*.color4:            #5fafff
+*.color12:           #87afff
 !magenta         
-*color5:            #ff8700
-*color13:           #ff5400
+*.color5:            #ff8700
+*.color13:           #ff5400
 !cyan            
-*color6:            #808080
-*color14:           #5fffff
+*.color6:            #808080
+*.color14:           #5fffff
 !white           
-*color7:            #e4e4e4
-*color15:           #e4e4e4
+*.color7:            #e4e4e4
+*.color15:           #e4e4e4
                  
-*background:        #1c1c1c
-*foreground:        #909090
+*.background:        #121212
+*.foreground:        #909090
 
 xterm*cursorColor:  #ff8700
 

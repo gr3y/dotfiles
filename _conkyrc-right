@@ -41,7 +41,8 @@ uppercase no
 gap_x 0
 gap_y 0
 alignment bottom_right
-minimum_size 1914
+minimum_size 1910 14
+maximum_width 1910 14
 
 #colour
 default_color 5fafff
@@ -51,7 +52,7 @@ color2 5fafff
 
 #font
 use_xft yes
-xftfont gr3y:size=8
+xftfont Monaco:size=8
 
 TEXT
 ${color1}.:${color}${nodename} \

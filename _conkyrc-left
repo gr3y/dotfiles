@@ -24,7 +24,7 @@
 #
 
 
-#double_buffer yes
+double_buffer yes
 own_window  yes
 own_window_transparent no
 own_window_type override
@@ -41,7 +41,8 @@ uppercase no
 gap_x 0
 gap_y 0
 alignment bottom_left
-minimum_size 1920
+minimum_size 1910 14
+maximum_width 1910 14
 
 #colour
 default_color 5fafff

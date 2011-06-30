@@ -82,7 +82,7 @@ set history=50
 
 syntax on
 
-if &term == "linux"
+if &term == "linux2"
   set t_Co=8
   set statusline=%<%F\ %h%m%r%=[TYPE=%Y\ %{&ff}]\ %=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l/%L,%c%V%)\ %P
 else
