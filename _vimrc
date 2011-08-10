@@ -82,7 +82,7 @@ set history=50
 
 syntax on
 
-if &term == "linux2"
+if &term == "linux"
   set t_Co=8
   set statusline=%<%F\ %h%m%r%=[TYPE=%Y\ %{&ff}]\ %=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l/%L,%c%V%)\ %P
 else
@@ -93,10 +93,10 @@ else
   " colorscheme molokai
 
   " Define some colors.
-  hi  User1   ctermfg=75    ctermbg=233     " blue
-  hi  User2   ctermfg=208   ctermbg=233     " Orange
-  hi  User3   ctermfg=160   ctermbg=233     " Red
-  hi  User4   ctermfg=247   ctermbg=233     " Grey
+  hi  User1   ctermfg=75    ctermbg=232     " blue
+  hi  User2   ctermfg=208   ctermbg=232     " Orange
+  hi  User3   ctermfg=160   ctermbg=232     " Red
+  hi  User4   ctermfg=247   ctermbg=232     " Grey
 
   set statusline=%2*%<[%4*%F%2*]\ %h%3*%m%4*%r%=%2*[%1*TYPE%2*=%1*%Y\ FORMAT%2*=%1*%{&ff}%2*]%1*\ %2*[%1*ENC%2*=%1*%=%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}%2*]%1*%k\ %-14.(%2*[%4*%l%2*/%4*%L%2*,%4*%c%V%2*]%)%4*\ %2*[%4*%P%2*]%4*
 endif

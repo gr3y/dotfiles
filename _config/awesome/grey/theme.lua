@@ -115,6 +115,7 @@ theme.layout_tile = cfg_path .. "/grey/layouts2/tile.png"
 theme.layout_tiletop = cfg_path .. "/grey/layouts2/tiletop.png"
 theme.layout_spiral  = cfg_path .. "/grey/layouts2/spiral.png"
 theme.layout_dwindle = cfg_path .. "/grey/layouts2/dwindle.png"
+theme.layout_greycols = cfg_path .. "/grey/layouts2/dwindle.png"
 
 theme.awesome_icon = cfg_path .. "/grey/awesome14.png"
 

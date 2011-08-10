@@ -26,6 +26,12 @@
 # Check for an interactive session, if not don't do anything.
 [ -z "$PS1" ] && return
 
+# The ledgen has foretold that .bashrc can't fight the evil alone and someone's trying to take
+# a shortcut. Wake the beaste and invoke ol'mighty .profile first.
+#if [ -z "$PROFILE_DONE" ] ; then
+#  source ~/.profile && exit
+#fi
+
 echo "Reading .bashrc"
 
 # File extraction need extglob
@@ -78,3 +84,4 @@ else
 fi
 
 # vim:fenc=utf-8:ft=sh
+# EOF

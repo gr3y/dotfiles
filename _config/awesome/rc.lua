@@ -36,7 +36,9 @@ require("beautiful")
 require("naughty")
 
 -- Load Freedesktop menu entries
-require('freedesktop.menu')
+require("freedesktop.menu")
+
+require("mirror")
 
 
 -- {{{ Variable definitions
@@ -71,7 +73,8 @@ layouts =
     awful.layout.suit.max,
     awful.layout.suit.max.fullscreen,
     awful.layout.suit.magnifier,
-    awful.layout.suit.floating
+    awful.layout.suit.floating,
+    awful.layout.suit.mirror
 }
 -- }}}
 

@@ -63,8 +63,8 @@ hi StatusLine      ctermfg=247    ctermbg=232    cterm=Bold
 hi VertSplit       ctermfg=247    ctermbg=232    cterm=Bold
 hi ColorColumn     ctermbg=232
                    
-hi LineNr          ctermfg=238    ctermbg=244    cterm=Bold
-hi LineNr          ctermfg=247    ctermbg=233    cterm=Bold
+"hi LineNr          ctermfg=238    ctermbg=244    cterm=Bold
+hi LineNr          ctermfg=247    ctermbg=232    cterm=Bold
 hi NonText         ctermfg=27     ctermbg=None   cterm=Bold
                    
                    
