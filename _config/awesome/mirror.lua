@@ -32,13 +32,37 @@ local math = math
 module("awful.layout.suit.mirror")
 
 local function mirror(p)
-  if #p.clients > 0 then
-    local area = {}
-    area.height = p.workarea.height
-    area.width = p.workarea.width
-    area.x = p.workarea.x
-    area.y = p.workarea.y
+  local area = {}
+  area.height = p.workarea.height
+  area.width = p.workarea.width
+  area.x = p.workarea.x
+  area.y = p.workarea.y
 
+  -- Single client window, maximize.
+  if #p.clients == 1 then
+    for k, c in ipairs(p.clients) do
+      local g = {}
+      g.width = area.width
+      g.height = area.height
+      g.x = area.x
+      g.y = area.y
+      c:geometry(g)
+    end
+  -- Two clients split in half.
+  elseif #p.clients == 2 then
+    local offsetx = 0
+
+    for k, c in ipairs(p.clients) do
+      local g = {}
+      g.width = area.width / 2
+      g.height = area.height
+      g.x = area.x + offsetx
+      g.y = area.y
+      offsetx = offsetx + g.width
+      c:geometry(g)
+    end
+  -- More then two clients, sort in "mirror-mode"
+  elseif #p.clients > 2 then
     local cols = 3
     local col = 1
     local rows = math.ceil((#p.clients - 1) / 2)
