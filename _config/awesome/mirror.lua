@@ -19,6 +19,7 @@
 --    .: DESCRIPTION:  Layout for awesome window manager that sorts clients into 3 coloumns
 --                     with a wider center column containing only one client.
 --                     Inspired by wmfs mirror layout.
+--                     Screenshot: http://ompldr.org/vOXplMw
 --
 -- __________________________________________________________________________________________
 --  This file is distributed "as it is", like it? Then use it in whole or parts of it but be
