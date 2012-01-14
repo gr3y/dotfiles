@@ -53,7 +53,8 @@ if [ $# -gt 0 ]; then
         ;;
       l)
         for hint in $USEFUL_PATH/*.txt; do
-          basename ${hint}
+          filename=$(basename ${hint})
+          echo ${filename%%.*}
         done
         exit 0
         ;;
@@ -68,6 +69,8 @@ if [ $# -gt 0 ]; then
 fi
 
 if [ -e "$USEFUL_PATH/$1.txt" ]; then
-  less $USEFUL_PATH/$1.txt
+  cat $USEFUL_PATH/$1.txt
+else
+  echo No such hint/tip recorded.
 fi
 

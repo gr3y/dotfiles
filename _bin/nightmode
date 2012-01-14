@@ -1,3 +1,4 @@
+#!/bin/bash
 #
 #   @@@@@@@@  @@@@@@@   @@@@@@@@  @@@ @@@   @@@@@@    @@@@@@@   @@@@@@   @@@       @@@@@@@@
 #  @@@@@@@@@  @@@@@@@@  @@@@@@@@  @@@ @@@  @@@@@@@   @@@@@@@@  @@@@@@@@  @@@       @@@@@@@@
@@ -10,12 +11,13 @@
 #   ::: ::::  ::   :::   :: ::::     ::    :::: ::    ::: :::  ::   :::   :: ::::   :: ::::
 #   :: :: :    :   : :  : :: ::      :     :: : :     :: :: :   :   : :  : :: : :  : :: ::
 #
-#    .: FILE:          .profile
-#    .: CREATED:       2011-07-01 07:47
+#    .: FILE:          nightmode
+#    .: CREATED:       2011-11-05 23:54
 #    .: AUTHOR:        Andreas Persson (greyscale, grey)
 #    .: MAIL:          <andreas(at)greyscale(dot)se>
 #    .: VERSION:       1.0
-#    .: DESCRIPTION:   Initiates the rites that brings the mighty shell into life.
+#    .: DESCRIPTION:   Starts redshift and adjusts the color temperature of your screen
+#                      according to your surroundings.
 #
 # __________________________________________________________________________________________
 #  This file is distributed "as it is", like it? Then use it in whole or parts of it but be
@@ -23,31 +25,20 @@
 # __________________________________________________________________________________________
 #
 
-echo "Reading .profile"
+# Latitude:Longitude
+LATLON=56.28:13.7
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/apps/bin" ] ; then
-  PATH="$HOME/apps/bin:$PATH"
-fi
-
-if [ -d "$HOME/.bin" ] ; then
-  PATH="$HOME/.bin:$PATH"
-fi
-
-# if running bash
-if [ -n "$BASH_VERSION" ]; then
-  # include .bashrc if it exists
-  if [ -f "$HOME/.bashrc" ]; then
-    source "$HOME/.bashrc"
-
-    # Enables colorwraper for most shell utils.
-    #export PATH="/usr/lib/cw:$PATH"
-    #export PATH="$HOME/apps/bin/acoc-links:$PATH"
-    export PATH="/usr/share/perl5/vendor_perl/auto/share/dist/Cope:$PATH"
-  fi
-fi
-
-# Leave a marker telling that it has been done.
-export PROFILE_DONE="done"
-
-# EOF
+case $1 in
+  "-k")
+    # Kill running redshift.
+    pkill redshift
+    ;;
+  *)
+    # Start if not already running.
+    if [ -z "$(pgrep redshift)" ]; then
+      redshift -l ${LATLON}  -t 5700:3600 -g 0.8 -m vidmode &
+    else
+      echo "Redshift already running."
+    fi
+    ;;
+esac

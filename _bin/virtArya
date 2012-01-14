@@ -25,4 +25,4 @@
 #
 
 
-/usr/lib/virtualbox/VirtualBox --comment WinXP --startvm b6fe8070-1014-4dd3-b4d0-f1f91d44d3a3 --no-startvm-errormsgbox > /dev/null 2>&1 &
+vmplayer "/home/andreasp/vmware/Arya/Arya.vmx" &

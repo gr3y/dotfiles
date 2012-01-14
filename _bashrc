@@ -45,7 +45,7 @@ shopt -s histappend                               # append the history to the hi
 shopt -s cmdhist                                  # multi-line commands are stored in the history
 export HISTFILESIZE=1000                          # bash history file length
 export HISTCONTROL=ignoreboth                     # no duplicates and empty lines
-export HISTIGNORE="&:ls:[bf]g:exit:rm"            # do not store these lines
+export HISTIGNORE="&:ls:[bf]g:exit:sudo*:rm*"            # do not store these lines
 #export PROMPT_COMMAND="history -n; history -a"   # update & re-read histfile after every cmd so terminals will share
 
 

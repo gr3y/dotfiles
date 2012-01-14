@@ -29,7 +29,7 @@ shopt -s extglob
 
 
 # Easy extraction of compressed files.
-extract() {
+extract () {
   local e=0 i c
   for i; do
     if [[ -r $i ]]; then
@@ -57,7 +57,7 @@ extract() {
 
 
 # Sync repos and display available updates.
-function ychup() {
+function ychup () {
   echo "Found upgrades for these packages:"
   yaourt -Syu -p --print-format "%r/%n %v %s"
 

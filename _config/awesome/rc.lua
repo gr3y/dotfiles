@@ -397,11 +397,14 @@ awful.rules.rules = {
                      tag = tags[1][5] } },
     { rule = { class = "Vmplayer" },
       properties = { floating = true,
-                     tag = tags[1][5] } },
+                     tag = tags[1][5],
+                     callback = function(c) c:geometry({x=237, y=152}) end} },
     { rule = { class = "WeeUXTERM" },
       properties = { tag = tags[1][9] } },
     { rule = { class = "MuttUXTERM" },
       properties = { tag = tags[1][9] } },
+    { rule = { class = "Eclipse" },
+      properties = { tag = tags[1][1] } },
     { rule = { class = "XTerm" }, 
       properties = { opacity = 0.7 } }
     -- Set Firefox to always map on tags number 2 of screen 1.
