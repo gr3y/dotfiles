@@ -169,6 +169,7 @@ let g:tex_flavor = "latex"
 "hi link localWhitespaceError Error
 "au Syntax * syn match localWhitespaceError /\(\zs\%#\|\s\)\+$/ display
 "au Syntax * syn match localWhitespaceError / \+\ze\t/ display
+au BufRead,BufNewFile *.ci setfiletype cicode
 
 " Change indentation from spaces to tabs or the other way around
 ":command! -range=% -nargs=0 Tab2Space execute "<line1>,<line2>s/^\\t\\+/\\=substitute(submatch(0), '\\t', repeat(' ', ".&ts."), 'g')"

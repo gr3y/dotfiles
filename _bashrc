@@ -41,12 +41,12 @@ shopt -s extglob
 shopt -s checkwinsize
 
 # Control history (luckily the winner of the war writes it).
-shopt -s histappend                               # append the history to the histfile instead of overwriting it.
-shopt -s cmdhist                                  # multi-line commands are stored in the history
-export HISTFILESIZE=1000                          # bash history file length
-export HISTCONTROL=ignoreboth                     # no duplicates and empty lines
-export HISTIGNORE="&:ls:[bf]g:exit:sudo*:rm*"            # do not store these lines
-#export PROMPT_COMMAND="history -n; history -a"   # update & re-read histfile after every cmd so terminals will share
+shopt -s histappend                                       # append the history to the histfile instead of overwriting it.
+shopt -s cmdhist                                          # multi-line commands are stored in the history
+export HISTFILESIZE=1000                                  # bash history file length
+export HISTCONTROL=ignoreboth                             # no duplicates and empty lines
+export HISTIGNORE="&:ls:[bf]g:exit:sudo*:rm*:halt"        # do not store these lines
+#export PROMPT_COMMAND="history -n; history -a"           # update & re-read histfile after every cmd so terminals will share
 
 
 # make less more friendly for non-text input files, see lesspipe(1)

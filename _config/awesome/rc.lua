@@ -397,7 +397,7 @@ awful.rules.rules = {
                      tag = tags[1][5] } },
     { rule = { class = "Vmplayer" },
       properties = { floating = true,
-                     tag = tags[1][5],
+                     tag = tags[1][6],
                      callback = function(c) c:geometry({x=237, y=152}) end} },
     { rule = { class = "WeeUXTERM" },
       properties = { tag = tags[1][9] } },
@@ -445,8 +445,14 @@ client.add_signal("manage", function (c, startup)
     end
 end)
 
-client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
-client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+client.add_signal("focus", function(c)
+                                c.border_color = beautiful.border_focus 
+                                c.opacity = 1
+                            end)
+client.add_signal("unfocus", function(c)
+                                c.border_color = beautiful.border_normal 
+                                c.opacity = 0.65
+                            end)
 
 
 -- No border if maximized or the only window showing.
@@ -485,4 +491,5 @@ r.run("/usr/bin/xscreensaver &")
 r.run("/usr/bin/dropboxd &")
 -- r.run("/usr/bin/xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D6 > /dev/null 2>&1 &")
 r.run("/usr/bin/udisks --monitor > ~/.udisks.log 2>&1 &")
+r.run("sleep 5 && /home/andreasp/.bin/check_kernel_version.sh")
 -- }}}
