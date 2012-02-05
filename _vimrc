@@ -26,7 +26,7 @@ set nocompatible
 set mouse-=a
 set number
 set novb
-set cursorline
+"set cursorline
 set encoding=utf-8
 set termencoding=utf-8
 set showmatch
@@ -148,6 +148,10 @@ au          BufNewFile,BufRead  *conkyrc    set filetype=conkyrc
 au          BufNewFile,BufRead  *.vorg      set filetype=vorg
 "autocmd    BufWritePost        *.sh !chmod +x %
 
+" gvim stuff
+if has('gui_running')
+  set guifont=Courier:h10:cANSI
+end
 
 " Personal lua-support settings.
 let g:Lua_AuthorName          = 'Andreas Persson'
