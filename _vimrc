@@ -150,7 +150,7 @@ au          BufNewFile,BufRead  *.vorg      set filetype=vorg
 
 " gvim stuff
 if has('gui_running')
-  set guifont=Courier:h10:cANSI
+  set guifont=Gr3y2\ 8
 end
 
 " Personal lua-support settings.

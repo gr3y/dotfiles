@@ -392,6 +392,8 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "Tilda" },
       properties = { floating = true } },
+    { rule = { class = "same-gnome" },
+      properties = { floating = true } },
     { rule = { class = "VirtualBox" },
       properties = { floating = true,
                      tag = tags[1][5] } },

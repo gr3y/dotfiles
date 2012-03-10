@@ -39,8 +39,6 @@ require("naughty")
 require("freedesktop.menu")
 
 require("mirror")
-require("blingbling")
-require("vicious")
 
 
 -- {{{ Variable definitions
@@ -197,59 +195,7 @@ for s = 1, screen.count() do
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
     }
-
--- {{{ Bottom statusbar
-    hostname= blingbling.value_textbox.new()
-    hostname:set_height(15)
-    hostname:set_V_margin(2)
-    hostname:set_filled(true)
-    hostname:set_filled_color("#00000099")
-    hostname:set_values_text_color({{"#88aa00ff",0}, --all value > 0 will be displaying using this color
-                              {"#d4aa00ff", 0.75},
-                              {"#d45500ff",0.77}})
-    hostname:set_label(os.getenv("HOSTNAME"))
-
-    cpulabel= widget({ type = "textbox" })
-    cpulabel.text='CPU: '
-    cpuwidget = widget({ type = "textbox" })
-    vicious.register(cpuwidget, vicious.widgets.cpu, "$1%")
-    cpugraph=blingbling.classical_graph.new()
-    cpugraph:set_height(15)
-    cpugraph:set_width(360)
-    cpugraph:set_graph_color("#5fafff")
-    cpugraph:set_graph_line_color("#5fafff")
-    cpugraph:set_tiles(false)
-    cpugraph:set_show_text(true)
-    cpugraph:set_text_color("#FF8700")
-    cpugraph:set_label("Load: $percent %")
-    vicious.register(cpugraph, vicious.widgets.cpu,'$1',2)
-    
-    memlabel= widget({ type = "textbox" })
-    memlabel.text=' RAM: '
-    memwidget = widget({ type = "textbox" })
-    vicious.register(memwidget, vicious.widgets.mem, "$1%")
-    memgraph=blingbling.classical_graph.new()
-    memgraph:set_height(15)
-    memgraph:set_width(50)
-    memgraph:set_graph_color("#5fafff")
-    memgraph:set_graph_line_color("#5fafff")
-    memgraph:set_tiles(false)
-    memgraph:set_show_text(false)
-    vicious.register(memgraph, vicious.widgets.mem,'$1',2)
-    
-
-    mystatusbar[s] = awful.wibox({ position = "bottom", screen = s, ontop = false, height = 15 })
-    mystatusbar[s].widgets = {
-      hostname,
-      cpulabel,
-      cpuwidget,
-      cpugraph,
-      memlabel,
-      memwidget,
-      memgraph,
-      layout = awful.widget.layout.horizontal.leftright
-    }
--- }}}
+    mystatusbar[s] = awful.wibox({ position = "bottom", screen = s, ontop = false, width = 1, height = 15 })
 end
 -- }}}
 
@@ -446,16 +392,21 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "Tilda" },
       properties = { floating = true } },
+    { rule = { class = "same-gnome" },
+      properties = { floating = true } },
     { rule = { class = "VirtualBox" },
       properties = { floating = true,
                      tag = tags[1][5] } },
     { rule = { class = "Vmplayer" },
       properties = { floating = true,
-                     tag = tags[1][5] } },
+                     tag = tags[1][6],
+                     callback = function(c) c:geometry({x=237, y=152}) end} },
     { rule = { class = "WeeUXTERM" },
       properties = { tag = tags[1][9] } },
     { rule = { class = "MuttUXTERM" },
       properties = { tag = tags[1][9] } },
+    { rule = { class = "Eclipse" },
+      properties = { tag = tags[1][1] } },
     { rule = { class = "XTerm" }, 
       properties = { opacity = 0.7 } }
     -- Set Firefox to always map on tags number 2 of screen 1.
@@ -496,8 +447,20 @@ client.add_signal("manage", function (c, startup)
     end
 end)
 
-client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
-client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+client.add_signal("focus", function(c)
+                                c.border_color = beautiful.border_focus 
+                                c.opacity = 1
+                            end)
+client.add_signal("unfocus", function(c)
+                                c.border_color = beautiful.border_normal 
+                                c.opacity = 0.65
+                            end)
+
+client.add_signal("property::urgent", function(c)                                                                      
+    client.focus = c
+    naughty.notify({ text = c.name .. " calls for yout attension!", icon = "/home/andreasp/.icons/Humanities-Dark-gr3y/status/32/error.svg" })
+  end                                                                                                                     
+)   
 
 
 -- No border if maximized or the only window showing.

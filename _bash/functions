@@ -113,4 +113,8 @@ function disp256col {
   done
 }
 
+function _ssh_complete() {
+  $(echo $(grep '^ssh ' .bash_history | sort -u | sed 's/^ssh //'))
+}
+
 # vim:fenc=utf-8:ft=sh
