@@ -390,13 +390,15 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "Volumeicon" },
       properties = { floating = true } },
+    { rule = { class = "Gxmessage" },
+      properties = { floating = true } },
     { rule = { class = "Tilda" },
       properties = { floating = true } },
-    { rule = { class = "same-gnome" },
+    { rule = { class = "Same-gnome" },
       properties = { floating = true } },
     { rule = { class = "VirtualBox" },
       properties = { floating = true,
-                     tag = tags[1][5] } },
+                     tag = tags[1][6] } },
     { rule = { class = "Vmplayer" },
       properties = { floating = true,
                      tag = tags[1][6],
@@ -489,7 +491,7 @@ r.run("/usr/bin/tilda")
 r.run("/home/andreasp/.bin/mouseMod.sh")
 -- r.run("/usr/bin/thunar --daemon &")
 r.run("/usr/bin/xbindkeys")
-r.run("/usr/bin/xscreensaver &")
+--r.run("/usr/bin/xscreensaver &")
 r.run("/usr/bin/dropboxd &")
 -- r.run("/usr/bin/xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D6 > /dev/null 2>&1 &")
 r.run("/usr/bin/udisks --monitor > ~/.udisks.log 2>&1 &")
