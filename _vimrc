@@ -67,7 +67,7 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=1
 
-set nolazyredraw
+"set nolazyredraw
 set ttyfast
 
 set laststatus=2

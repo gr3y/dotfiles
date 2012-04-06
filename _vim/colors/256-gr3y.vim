@@ -21,6 +21,8 @@
 "                      Orignal theme is found at:
 "                      http://www.vim.org/scripts/script.php?script_id=3062
 "
+"                      Also added support for using it in GUI
+"
 " __________________________________________________________________________________________
 "  This file is distributed "as it is", like it? Then use it in whole or parts of it but be
 "  minded that it comes with absolutely no warranty. But then again you got it for free..

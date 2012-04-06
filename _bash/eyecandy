@@ -39,7 +39,7 @@ export CW_COLORIZE=blue:purple
 
 # Colors for ls
 if [ -e ~/.dircolors-256grayvim ]; then
-    eval $(/bin/dircolors -b ~/.dircolors-256grayvim)
+    eval $(/usr/bin/dircolors -b ~/.dircolors-256grayvim)
 fi
 
 # Change console color theme.
