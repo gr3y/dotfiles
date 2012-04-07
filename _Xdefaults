@@ -78,4 +78,10 @@
 !  # include "/home/andreasp/.colors/xterminus"
 !}}
 
+
+!{{
+  myttyclock*background:          #000000
+  bxterm*background:              #000000
+!}}
+
 ! vim:fenc=utf-8:ft=xdefaults
