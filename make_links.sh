@@ -50,7 +50,7 @@ for file in _*; do
       fi
     else
       # User already have a existing dot-file.
-      echo "$RED!!! $dot_file already exists (regular file)!$NORMAL"
+      echo "$RED!!! $dot_file already exists (regular file or directory)!$NORMAL"
       echo "    Skipping link creation of $dot_file, resolve manually."
       found_err=2
     fi

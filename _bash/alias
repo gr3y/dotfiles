@@ -49,6 +49,7 @@ alias bxterm='xterm -bg black -fg grey'
 alias mc='mc -u'                            # Workaround for mc's sloow startup.
 
 alias ychup='yaourt -Syu -p --print-format "%r/%n %v %s"' # Sync repos and display available updates.
+alias findpac='find /etc /var /boot -regex ".*pac\(new\|save\|orig\)" -print'    # Find pacman "leftovers".
 
 # Pacman alias examples
 alias pacman='pacman-color'

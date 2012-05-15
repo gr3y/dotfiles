@@ -16,3 +16,6 @@ set echo-control-characters off
 
 # O bell.. please die.. just die wont you ;)
 set audible-bell none
+
+set show-all-if-ambiguous on
+set show-all-if-unmodified on

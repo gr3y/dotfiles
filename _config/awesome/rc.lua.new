@@ -174,9 +174,17 @@ for s = 1, screen.count() do
     mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.label.all, mytaglist.buttons)
 
     -- Create a tasklist widget
-    mytasklist[s] = awful.widget.tasklist(function(c)
-                                              return awful.widget.tasklist.label.currenttags(c, s)
-                                          end, mytasklist.buttons)
+    --mytasklist[s] = awful.widget.tasklist(function(c)
+    --                                          return awful.widget.tasklist.label.currenttags(c, s)
+    --                                      end, mytasklist.buttons)
+
+    -- Create a tasklist widget
+    mytasklist = awful.widget.tasklist(
+            function(c)
+                --remove tasklist-icon without modifying the original tasklist.lua
+                local tmptask = { awful.widget.tasklist.label.currenttags(c, s) }
+                return tmptask[1], tmptask[2], tmptask[3], image(beautiful.tasklist_square)
+            end, mytasklist.buttons)
 
     -- Create the wibox
     mywibox[s] = awful.wibox({ position = "top", screen = s, ontop = false, height = 15 })
@@ -422,9 +430,9 @@ client.add_signal("manage", function (c, startup)
     -- awful.titlebar.add(c, { modkey = modkey })
     
     -- Replace clients icon with a little "bar".
-    if beautiful.tasklist_square then
-      c.icon = image(beautiful.tasklist_square)
-    end
+--    if beautiful.tasklist_square then
+--      c.icon = image(beautiful.tasklist_square)
+--    end
 
     -- Enable sloppy focus
     c:add_signal("mouse::enter", function(c)
@@ -456,11 +464,10 @@ client.add_signal("unfocus", function(c)
                                 c.opacity = 0.65
                             end)
 
-client.add_signal("property::urgent", function(c)                                                                      
-    client.focus = c
-    naughty.notify({ text = c.name .. " calls for yout attension!", icon = "/home/andreasp/.icons/Humanities-Dark-gr3y/status/32/error.svg" })
-  end                                                                                                                     
-)   
+--client.add_signal("property::urgent", function(c)                                                                      
+--    naughty.notify({ text = c.name .. " calls for yout attension!", icon = "/home/andreasp/.icons/Humanities-Dark-gr3y/status/32/error.svg" })
+--  end                                                                                                                     
+--)   
 
 
 -- No border if maximized or the only window showing.

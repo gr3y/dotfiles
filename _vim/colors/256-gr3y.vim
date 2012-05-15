@@ -44,7 +44,8 @@ if has('gui_running')
   hi Directory       guifg=#5fd700
   hi ErrorMsg        guifg=#af0000
   hi PreProc         guifg=#9e9e9e                              gui=Bold
-  hi Search          guifg=#afff00                              gui=Bold
+  hi Search          guifg=#ff0056                              gui=Bold
+  "hi Search          guifg=#afff00                              gui=Bold
   hi Type            guifg=#5fafff                              gui=Bold
   hi Function        guifg=#afff00
   "hi Function        guifg=#00dfff
@@ -84,7 +85,8 @@ else
   hi Directory       ctermfg=76     ctermbg=None   cterm=None
   hi ErrorMsg        ctermfg=124    ctermbg=None   cterm=None
   hi PreProc         ctermfg=246    ctermbg=None   cterm=Bold
-  hi Search          ctermfg=154    ctermbg=None   cterm=Bold
+  hi Search          ctermfg=197    ctermbg=None   cterm=Bold
+  "hi Search          ctermfg=154    ctermbg=None   cterm=Bold
   hi Type            ctermfg=75     ctermbg=None   cterm=Bold
   hi Function        ctermfg=154     ctermbg=None   cterm=None
   "hi Function        ctermfg=45     ctermbg=None   cterm=None
@@ -93,6 +95,16 @@ else
   hi Identifier      ctermfg=111    ctermbg=None   cterm=Bold
   hi DiffText        ctermfg=88     ctermbg=250    cterm=None
   hi Constant        ctermfg=208    ctermbg=None   cterm=None
+  hi StorageClass    ctermfg=75     ctermbg=None   cterm=None
+  hi Exception       ctermfg=197    ctermbg=None   cterm=None
+  hi javaComment     ctermfg=244    ctermbg=None   cterm=None
+  hi javaDocComment  ctermfg=244    ctermbg=None   cterm=None
+  hi javaLineComment ctermfg=244    ctermbg=None   cterm=None
+  hi javaCommentTitle ctermfg=244    ctermbg=None   cterm=None
+  hi javaDocTags     ctermfg=244    ctermbg=None   cterm=None
+  hi javaDocParam    ctermfg=244    ctermbg=None   cterm=None
+  hi javaDocSeeTagParam ctermfg=244    ctermbg=None   cterm=None
+  hi javaCommentStar ctermfg=244    ctermbg=None   cterm=None
   hi Todo            ctermfg=232    ctermbg=118    cterm=Bold
   hi Error           ctermfg=160    ctermbg=232    cterm=Bold
   hi Special         ctermfg=154    ctermbg=None   cterm=None

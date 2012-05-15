@@ -20,6 +20,8 @@
  __________________________________________________________________________________________
   This file is distributed "as it is", like it? Then use it in whole or parts of it but be
   minded that it comes with absolutely no warranty. But then again you got it for free..
+ 
+                     http://www.greyscale.se   http://github.com/gr3y/
  __________________________________________________________________________________________
 
 
