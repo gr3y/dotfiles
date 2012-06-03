@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<colorTheme id="7740" name="256-gr3y" modified="2012-05-19 15:23:48" author="Andreas Persson">
+    <searchResultIndication color="#EFEFEF" />
+    <filteredSearchResultIndication color="#EFEFEF" />
+    <occurrenceIndication color="#EFEFEF" />
+    <writeOccurrenceIndication color="#EFEFEF" />
+    <findScope color="#BCADFF" />
+    <deletionIndication color="#FF4747" />
+    <sourceHoverBackground color="#EEEEEE" />
+    <singleLineComment color="#606060" />
+    <multiLineComment color="#606060" />
+    <commentTaskTag color="#606060" />
+    <javadoc color="#606060" />
+    <javadocLink color="#A0EB01" />
+    <javadocTag color="#606060" />
+    <javadocKeyword color="#606060" />
+    <class color="#87AFFF" />
+    <interface color="#87AFFF" />
+    <method color="#909090" italic="false" underline="false" strikethrough="false" />
+    <methodDeclaration color="#909090" italic="false" />
+    <bracket color="#FFFFFF" bold="false" />
+    <number color="#FFA036" />
+    <string color="#FFA036" />
+    <operator color="#FFFFFF" />
+    <keyword color="#5FAFFF" />
+    <annotation color="#646464" />
+    <staticMethod color="#909090" />
+    <localVariable color="#88CF42" bold="false" italic="false" />
+    <localVariableDeclaration color="#88CF42" bold="false" />
+    <field color="#909090" />
+    <staticField color="#909090" italic="true" />
+    <staticFinalField color="#FFA036" italic="false" />
+    <deprecatedMember color="#E4E4E4" underline="false" strikethrough="true" />
+    <enum color="#808080" />
+    <inheritedMethod color="#909090" />
+    <abstractMethod color="#909090" />
+    <parameterVariable color="#88CF42" />
+    <typeArgument color="#87AFFF" />
+    <typeParameter color="#909090" />
+    <constant color="#FFA036" />
+    <background color="#121212" />
+    <currentLine color="#1F1F1F" />
+    <foreground color="#808080" />
+    <lineNumber color="#808080" />
+    <selectionBackground color="#9E9E9E" />
+    <selectionForeground color="#121212" />
+</colorTheme>
