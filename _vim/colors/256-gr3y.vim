@@ -93,8 +93,11 @@ else
   hi Statement       ctermfg=75     ctermbg=None   cterm=None
   hi Comment         ctermfg=244    ctermbg=None   cterm=None
   hi Identifier      ctermfg=111    ctermbg=None   cterm=Bold
-  hi DiffText        ctermfg=88     ctermbg=250    cterm=None
-  hi Constant        ctermfg=208    ctermbg=None   cterm=None
+  hi DiffAdd         ctermfg=154    ctermbg=None   cterm=None
+  hi DiffChange      ctermfg=220    ctermbg=None   cterm=None
+  hi DiffDelete      ctermfg=75     ctermbg=None   cterm=None
+  hi DiffText        ctermfg=247    ctermbg=None   cterm=None
+  hi Constant        ctermfg=253    ctermbg=None   cterm=None
   hi StorageClass    ctermfg=75     ctermbg=None   cterm=None
   hi Exception       ctermfg=197    ctermbg=None   cterm=None
   hi javaComment     ctermfg=244    ctermbg=None   cterm=None
@@ -122,6 +125,7 @@ else
                      
   "hi LineNr          ctermfg=238    ctermbg=244    cterm=Bold
   hi LineNr          ctermfg=247    ctermbg=232    cterm=Bold
+  "hi CursorLine      ctermfg=None    ctermbg=None   cterm=None
   hi NonText         ctermfg=27     ctermbg=None   cterm=Bold
                      
                      

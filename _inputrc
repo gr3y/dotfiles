@@ -1,5 +1,10 @@
 set echo-control-characters off
 
+# Use Unicode
+set input-meta on
+set output-meta on
+set convert-meta off
+
 # Complete command due to history.
 "\e[5~": history-search-backward
 "\e[6~": history-search-forward

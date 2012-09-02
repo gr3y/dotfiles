@@ -117,4 +117,8 @@ function _ssh_complete() {
   $(echo $(grep '^ssh ' .bash_history | sort -u | sed 's/^ssh //'))
 }
 
+function sbp() {
+  (sleep 1 ; xdotool mousemove -sync --window $WINDOWID 0 0 2>/dev/null ; xdotool mousemove 0 0 mousemove restore mousemove $X $Y 2>/dev/null) &
+}
+
 # vim:fenc=utf-8:ft=sh

@@ -16,7 +16,7 @@ Debug         LineNr      SignColumn  Todo          WarningMsg
 Delimiter     Magenta     Special     Type          White                         
 DiffAdd       MatchParen  SpecialKey  Underlined    WildMenu                      
 DiffChange    Menu        SpellBad    Unique        Yellow                        
-DiffDelete    ModeMsg     SpellCap                       
+DiffDelete    ModeMsg     SpellCap    StorageClass  Exception                     
 
     leftmouse,?    : help for given colorname if any is available
                      use ctrl-o to return

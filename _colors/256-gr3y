@@ -27,7 +27,8 @@
 
 !black 
 *.color0:            #080808
-*.color8:            #121212
+*.color8:            #343434
+!*.color8:            #121212
 !red            
 *.color1:            #ff0056
 *.color9:            #ff00ac
@@ -45,7 +46,7 @@
 *.color13:           #ff5400
 !cyan            
 *.color6:            #808080
-*.color14:           #5fffff
+*.color14:           #00d0d0
 !white           
 *.color7:            #e4e4e4
 *.color15:           #e4e4e4

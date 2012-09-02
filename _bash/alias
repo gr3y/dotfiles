@@ -63,4 +63,8 @@ alias pacreps='pacman -Ss'                  # Search for package(s) in the repos
 alias pacloc='pacman -Qi'                   # Display information about a given package in the local database
 alias paclocs='pacman -Qs'                  # Search for package(s) in the local database
 
+# Update ebook library on the mobilephone.
+alias upebooks="find  \"$HOME/docs/Calibre Library\"  -name *.epub -exec cp -uv '{}' /media/PHONE/Books \;" 
+alias upebookstablet="find  \"$HOME/docs/Calibre Library\"  -name *.epub -exec cp -uv '{}' '/media/TABLET 725H/Books' \;" 
+
 # vim:fenc=utf-8:ft=sh

@@ -26,7 +26,7 @@ set nocompatible
 set mouse-=a
 set number
 set novb
-"set cursorline
+set cursorline
 set encoding=utf-8
 set termencoding=utf-8
 set showmatch
@@ -47,9 +47,10 @@ filetype plugin indent on
 set expandtab
 set backspace=indent,eol,start
 set shiftwidth=2
-set tabstop=8
+set tabstop=2
 set softtabstop=2
 set smarttab
+
 set autoindent
 set smartindent
 set smartcase
@@ -67,7 +68,7 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=1
 
-"set nolazyredraw
+set lazyredraw
 set ttyfast
 
 set laststatus=2
@@ -78,6 +79,9 @@ set listchars=tab:»·,trail:·
 
 
 set history=50
+
+" Java
+
 
 
 syntax on
@@ -150,7 +154,8 @@ au          BufNewFile,BufRead  *.vorg      set filetype=vorg
 
 " gvim stuff
 if has('gui_running')
-  set guifont=Gr3y2\ 8
+  "set guifont=Gr3y2\ 8
+  set guifont=Terminus\ 8
 end
 
 " Personal lua-support settings.
