@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 #
 #   @@@@@@@@  @@@@@@@   @@@@@@@@  @@@ @@@   @@@@@@    @@@@@@@   @@@@@@   @@@       @@@@@@@@
 #  @@@@@@@@@  @@@@@@@@  @@@@@@@@  @@@ @@@  @@@@@@@   @@@@@@@@  @@@@@@@@  @@@       @@@@@@@@
@@ -23,4 +23,4 @@
 #  minded that it comes with absolutely no warranty. But then again you got it for free..
 # __________________________________________________________________________________________
 #
-xterm -class WeeUXTERM -title WeeChat -e /bin/bash -c /usr/bin/weechat-curses $@
+xterm -class WeeUXTERM -title WeeChat -e /usr/bin/bash -c /usr/bin/weechat-curses $@

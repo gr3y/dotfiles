@@ -14,7 +14,7 @@
 --      .: CREATED:       2011-04-16 22:28
 --      .: AUTHOR:        Andreas Persson (greyscale, grey)
 --      .: MAIL:          <andreas(at)greyscale(dot)se>
---      .: VERSION:       1.0
+--      .: VERSION:       1.5
 --      .: DESCRIPTION:   My theme for Awesome.
 --                        Most icons found a https://awesome.naquadah.org/wiki/Nice_Icons
 --                        with some additions made by freakAh.
@@ -25,23 +25,32 @@
 -- __________________________________________________________________________________________
 --
 
-local cfg_path = awful.util.getdir("config")
+
+local awful = require("awful")
+awful.util = require("awful.util")
 
 theme = {}
+theme.confdir = awful.util.getdir("config")
 
-theme.font          = "Monaco 7"
+theme.font          = "Terminus 7"
+
+-- Remove the taskbar icons
+theme.tasklist_disable_icon = true
+
 
 theme.bg_normal     = "#121212"
 theme.bg_focus      = "#212121"
 theme.bg_urgent     = "#212121"
 theme.bg_minimize   = "#121212"
 
+theme.bg_systray    = theme.bg_normal
+
 theme.fg_normal     = "#5fafff"
 theme.fg_focus      = "#ff8700"
 theme.fg_urgent     = "#ff0056"
 theme.fg_minimize   = "#ababab"
 
-theme.border_width  = "1"
+theme.border_width  = 1
 theme.border_normal = "#515151"
 theme.border_focus  = "#ff8700"
 theme.border_marked = "#ff0056"
@@ -57,18 +66,15 @@ theme.border_marked = "#ff0056"
 --theme.taglist_bg_focus = "#ff0000"
 
 -- Display the taglist squares
-theme.taglist_squares_sel   = cfg_path .. "/grey/taglist/squarefw.png"
-theme.taglist_squares_unsel = cfg_path .. "/grey/taglist/squarew.png"
-
-theme.tasklist_square = cfg_path .. "/grey/tasklist/square2.png"
-theme.tasklist_floating_icon = cfg_path .. "/grey/tasklist/floatingw.png"
+theme.taglist_squares_sel   = theme.confdir .. "/grey/taglist/squarefw.png"
+theme.taglist_squares_unsel = theme.confdir .. "/grey/taglist/squarew.png"
 
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
-theme.menu_submenu_icon = cfg_path .. "/grey/submenu.png"
-theme.menu_height = "15"
-theme.menu_width  = "100"
+theme.menu_submenu_icon = theme.confdir .. "/grey/submenu.png"
+theme.menu_height       = 15
+theme.menu_width        = 100
 
 -- You can add as many variables as
 -- you wish and access them by using
@@ -76,47 +82,51 @@ theme.menu_width  = "100"
 --theme.bg_widget = "#cc0000"
 
 -- Define the image to load
-theme.titlebar_close_button_normal = cfg_path .. "/grey/titlebar/close_normal.png"
-theme.titlebar_close_button_focus  = cfg_path .. "/grey/titlebar/close_focus.png"
+theme.titlebar_close_button_normal              = theme.confdir .. "/grey/titlebar/close_normal.png"
+theme.titlebar_close_button_focus               = theme.confdir .. "/grey/titlebar/close_focus.png"
 
-theme.titlebar_ontop_button_normal_inactive = cfg_path .. "/grey/titlebar/ontop_normal_inactive.png"
-theme.titlebar_ontop_button_focus_inactive  = cfg_path .. "/grey/titlebar/ontop_focus_inactive.png"
-theme.titlebar_ontop_button_normal_active = cfg_path .. "/grey/titlebar/ontop_normal_active.png"
-theme.titlebar_ontop_button_focus_active  = cfg_path .. "/grey/titlebar/ontop_focus_active.png"
+theme.titlebar_ontop_button_normal_inactive     = theme.confdir .. "/grey/titlebar/ontop_normal_inactive.png"
+theme.titlebar_ontop_button_focus_inactive      = theme.confdir .. "/grey/titlebar/ontop_focus_inactive.png"
+theme.titlebar_ontop_button_normal_active       = theme.confdir .. "/grey/titlebar/ontop_normal_active.png"
+theme.titlebar_ontop_button_focus_active        = theme.confdir .. "/grey/titlebar/ontop_focus_active.png"
 
-theme.titlebar_sticky_button_normal_inactive = cfg_path .. "/grey/titlebar/sticky_normal_inactive.png"
-theme.titlebar_sticky_button_focus_inactive  = cfg_path .. "/grey/titlebar/sticky_focus_inactive.png"
-theme.titlebar_sticky_button_normal_active = cfg_path .. "/grey/titlebar/sticky_normal_active.png"
-theme.titlebar_sticky_button_focus_active  = cfg_path .. "/grey/titlebar/sticky_focus_active.png"
+theme.titlebar_sticky_button_normal_inactive    = theme.confdir .. "/grey/titlebar/sticky_normal_inactive.png"
+theme.titlebar_sticky_button_focus_inactive     = theme.confdir .. "/grey/titlebar/sticky_focus_inactive.png"
+theme.titlebar_sticky_button_normal_active      = theme.confdir .. "/grey/titlebar/sticky_normal_active.png"
+theme.titlebar_sticky_button_focus_active       = theme.confdir .. "/grey/titlebar/sticky_focus_active.png"
 
-theme.titlebar_floating_button_normal_inactive = cfg_path .. "/grey/titlebar/floating_normal_inactive.png"
-theme.titlebar_floating_button_focus_inactive  = cfg_path .. "/grey/titlebar/floating_focus_inactive.png"
-theme.titlebar_floating_button_normal_active = cfg_path .. "/grey/titlebar/floating_normal_active.png"
-theme.titlebar_floating_button_focus_active  = cfg_path .. "/grey/titlebar/floating_focus_active.png"
+theme.titlebar_floating_button_normal_inactive  = theme.confdir .. "/grey/titlebar/floating_normal_inactive.png"
+theme.titlebar_floating_button_focus_inactive   = theme.confdir .. "/grey/titlebar/floating_focus_inactive.png"
+theme.titlebar_floating_button_normal_active    = theme.confdir .. "/grey/titlebar/floating_normal_active.png"
+theme.titlebar_floating_button_focus_active     = theme.confdir .. "/grey/titlebar/floating_focus_active.png"
 
-theme.titlebar_maximized_button_normal_inactive = cfg_path .. "/grey/titlebar/maximized_normal_inactive.png"
-theme.titlebar_maximized_button_focus_inactive  = cfg_path .. "/grey/titlebar/maximized_focus_inactive.png"
-theme.titlebar_maximized_button_normal_active = cfg_path .. "/grey/titlebar/maximized_normal_active.png"
-theme.titlebar_maximized_button_focus_active  = cfg_path .. "/grey/titlebar/maximized_focus_active.png"
+theme.titlebar_maximized_button_normal_inactive = theme.confdir .. "/grey/titlebar/maximized_normal_inactive.png"
+theme.titlebar_maximized_button_focus_inactive  = theme.confdir .. "/grey/titlebar/maximized_focus_inactive.png"
+theme.titlebar_maximized_button_normal_active   = theme.confdir .. "/grey/titlebar/maximized_normal_active.png"
+theme.titlebar_maximized_button_focus_active    = theme.confdir .. "/grey/titlebar/maximized_focus_active.png"
 
--- You can use your own command to set your wallpaper
-theme.wallpaper_cmd = { "awsetbg -u feh -t " .. cfg_path .. "/grey/background/bg2.png" }
+theme.wallpaper = theme.confdir .. "/grey/background/bg2.png"
 
 -- You can use your own layout icons like this:
-theme.layout_fairh = cfg_path .. "/grey/layouts2/fairh.png"
-theme.layout_fairv = cfg_path .. "/grey/layouts2/fairv.png"
-theme.layout_floating  = cfg_path .. "/grey/layouts2/floating.png"
-theme.layout_magnifier = cfg_path .. "/grey/layouts2/magnifier.png"
-theme.layout_max = cfg_path .. "/grey/layouts2/max.png"
-theme.layout_fullscreen = cfg_path .. "/grey/layouts2/fullscreen.png"
-theme.layout_tilebottom = cfg_path .. "/grey/layouts2/tilebottom.png"
-theme.layout_tileleft   = cfg_path .. "/grey/layouts2/tileleft.png"
-theme.layout_tile = cfg_path .. "/grey/layouts2/tile.png"
-theme.layout_tiletop = cfg_path .. "/grey/layouts2/tiletop.png"
-theme.layout_spiral  = cfg_path .. "/grey/layouts2/spiral.png"
-theme.layout_dwindle = cfg_path .. "/grey/layouts2/dwindle.png"
-theme.layout_mirror = cfg_path .. "/grey/layouts2/mirrorv.png"
+theme.layout_fairh      = theme.confdir .. "/grey/layouts2/fairh.png"
+theme.layout_fairv      = theme.confdir .. "/grey/layouts2/fairv.png"
+theme.layout_floating   = theme.confdir .. "/grey/layouts2/floating.png"
+theme.layout_magnifier  = theme.confdir .. "/grey/layouts2/magnifier.png"
+theme.layout_max        = theme.confdir .. "/grey/layouts2/max.png"
+theme.layout_fullscreen = theme.confdir .. "/grey/layouts2/fullscreen.png"
+theme.layout_tilebottom = theme.confdir .. "/grey/layouts2/tilebottom.png"
+theme.layout_tileleft   = theme.confdir .. "/grey/layouts2/tileleft.png"
+theme.layout_tile       = theme.confdir .. "/grey/layouts2/tile.png"
+theme.layout_tiletop    = theme.confdir .. "/grey/layouts2/tiletop.png"
+theme.layout_spiral     = theme.confdir .. "/grey/layouts2/spiral.png"
+theme.layout_dwindle    = theme.confdir .. "/grey/layouts2/dwindle.png"
+--theme.layout_mirror     = theme.confdir .. "/grey/layouts2/mirrorv.png"
 
-theme.awesome_icon = cfg_path .. "/grey/awesome14.png"
+theme.awesome_icon      = theme.confdir .. "/grey/awesome14.png"
+
+-- Define the icon theme for application icons. If not set then the icons 
+-- from /usr/share/icons and /usr/share/icons/hicolor will be used.
+theme.icon_theme = nil
 
 return theme
+-- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80

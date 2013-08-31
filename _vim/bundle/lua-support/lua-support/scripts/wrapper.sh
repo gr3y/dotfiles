@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 #===============================================================================
 #          FILE:  wrapper.sh
 #         USAGE:  ./wrapper.sh executable [cmd-line-args] 

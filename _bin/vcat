@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 #!/usr/bin/env vim
 #! This is a bash script that executes itself as a vimscript to do its work
  

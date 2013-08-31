@@ -26,7 +26,6 @@ set nocompatible
 set mouse-=a
 set number
 set novb
-set cursorline
 set encoding=utf-8
 set termencoding=utf-8
 set showmatch
@@ -35,6 +34,11 @@ set showcmd
 set magic
 set nobackup
 set splitbelow
+set splitright
+set cursorline
+
+
+
 
 " These pathogen functions need to be invoked before "filetype plugin indent on" if
 " you want it to load ftdetect files.
@@ -56,20 +60,21 @@ set smartindent
 set smartcase
 set nowrap
 set textwidth=120
-set colorcolumn=+1
+"set colorcolumn=+1
 
 " Undo files
 silent! set undodir=~/.local/tmp/
 silent! set undofile
 
 " Folding settings
-set foldmethod=indent
-set foldnestmax=10
+set foldmethod=syntax
+" set foldnestmax=10
 set nofoldenable
-set foldlevel=1
+set foldlevel=2
 
 set lazyredraw
 set ttyfast
+set sidescroll=2
 
 set laststatus=2
 set ruler
@@ -80,8 +85,8 @@ set listchars=tab:»·,trail:·
 
 set history=50
 
-" Java
-
+" Autotag
+""so ~/.vim/bundle/autotag/plugin/autotag.vim
 
 
 syntax on
@@ -105,6 +110,7 @@ else
   set statusline=%2*%<[%4*%F%2*]\ %h%3*%m%4*%r%=%2*[%1*TYPE%2*=%1*%Y\ FORMAT%2*=%1*%{&ff}%2*]%1*\ %2*[%1*ENC%2*=%1*%=%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}%2*]%1*%k\ %-14.(%2*[%4*%l%2*/%4*%L%2*,%4*%c%V%2*]%)%4*\ %2*[%4*%P%2*]%4*
 endif
 
+
 set noerrorbells
 
 
@@ -116,6 +122,26 @@ set autochdir
 
 " Turn on hlsearch, put cursor on a word and type * and it highlights it everywhere
 set hlsearch
+
+
+
+""let g:easytags_file = '~/.vim/tags/easytags/global.tags' " global tags
+""let g:easytags_dynamic_files = 2
+" 1: if project specific tags exists, otherwise -> use global tags file
+" 2: auto create project specific tags based on first name in 'tags' option
+""let g:easytags_by_filetype = '~/.vim/tags/easytags'
+""let g:easytags_always_enabled = 0 " this slow down Vim
+""let g:easytags_on_cursorhold = 0 " disable periodic highlight
+""let g:easytags_updatetime_min = 4000
+""let g:easytags_updatetime_autodisable = 1
+let g:easytags_auto_update = 1          " auto update tags and highlights
+let g:easytags_auto_highlight = 1       " auto highlight tags
+let g:easytags_autorecurse = 0          " 0: file, 1: current dir, 2: recursively
+let g:easytags_resolve_links = 1        " unix symbolic link and hard link
+let g:easytags_include_members = 1      " let ctags include struct/class members
+""set tags+=~/.vim/tags/easytags/global.tags " for easytags
+
+
 
 
 " Some key mappings
@@ -130,45 +156,37 @@ nnoremap        <F10>             :0r ~/.vim/templates/grey-generic-fh.txt<cr>  
 map             <silent> <F11>    <ESC>:set list!<CR>                             " Toggle listing of whitespaces.
 map             <F12>             <Esc>:NERDTreeToggle<CR>                        " Toggles NERDTree filebrowser.
 nmap            <Leader>n         :set invnumber<CR>                              " Toggle linenumbering.
-nnoremap        <silent> <Space>  @=(foldlevel('.')?'za':'l')<CR>
-vnoremap        <Space>           zf
+nnoremap        <S-Left>          zo                                              " Open fold on SHIFT+LEFT ARROW.
+inoremap        <S-Left>          <C-O>zo                                         "
+nnoremap        <S-Right>         zc                                              " Close fold on SHIFT+RIGHT ARROW.
+inoremap        <S-Right>         <C-O>zc                                         "
 
 
 " perl style # commenting
-autocmd     FileType php,yaml,sh  noremap <F5> :s/\v^(\s*)/\1# <CR>
-autocmd     FileType php,yaml,sh  noremap <F6> :s/\v^(\s*)# \1/ <CR>
+autocmd     FileType php,yaml,sh        noremap <F5> :s/\v^(\s*)/\1# <CR>
+autocmd     FileType php,yaml,sh        noremap <F6> :s/\v^(\s*)# \1/ <CR>
 " C style // commenting
-autocmd     FileType c,cpp,php    noremap <F5> :s+\v^(\s*)+\1//+ <CR>
-autocmd     FileType c,cpp,php    noremap <F6> :s+\v^(\s*)//+\1+ <CR>
+autocmd     FileType c,cpp,php,java     noremap <F5> :s+\v^(\s*)+\1//+ <CR>
+autocmd     FileType c,cpp,php,java     noremap <F6> :s+\v^(\s*)//+\1+ <CR>
 " vim commenting
-autocmd     FileType vim          noremap <F5> :s/\v^(\s*)/\1" / <CR>
-autocmd     FileType vim          noremap <F6> :s/\v^(\s*)" /\1/ <CR>
+autocmd     FileType vim                noremap <F5> :s/\v^(\s*)/\1" / <CR>
+autocmd     FileType vim                noremap <F6> :s/\v^(\s*)" /\1/ <CR>
 " lua style -- commenting
-autocmd     FileType lua          noremap <F5> :s/\v^(\s*)/\1-- / <CR>
-autocmd     FileType lua          noremap <F6> :s/\v^(\s*)-- /\1/ <CR>
+autocmd     FileType lua                noremap <F5> :s/\v^(\s*)/\1-- / <CR>
+autocmd     FileType lua                noremap <F6> :s/\v^(\s*)-- /\1/ <CR>
 
 " autocmd   BufRead             *.lua       setlocal makeprg=lua\ %
 au          BufNewFile,BufRead  *conkyrc    set filetype=conkyrc
 au          BufNewFile,BufRead  *.vorg      set filetype=vorg
 "autocmd    BufWritePost        *.sh !chmod +x %
 
+" Java
+"au          FileType java             set tags=~/.vim/tags/java
+
 " gvim stuff
 if has('gui_running')
-  "set guifont=Gr3y2\ 8
   set guifont=Terminus\ 8
 end
-
-" Personal lua-support settings.
-let g:Lua_AuthorName          = 'Andreas Persson'
-let g:Lua_AuthorRef           = 'greyscale, grey'
-let g:Lua_Email               = 'andreas(at)greyscale(dot)se'
-"let g:Lua_Template_Directory  = '~/.vim/templates/'
-
-" Personal bash-support settings.
-let g:BASH_AuthorName         = "Andreas Persson"
-let g:BASH_AuthorRef          = "greyscale, grey"
-let g:BASH_Email              = "andreas(at)greyscale(dot)se"
-
 
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"

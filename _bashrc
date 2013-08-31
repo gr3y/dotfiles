@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 #
 #   @@@@@@@@  @@@@@@@   @@@@@@@@  @@@ @@@   @@@@@@    @@@@@@@   @@@@@@   @@@       @@@@@@@@
 #  @@@@@@@@@  @@@@@@@@  @@@@@@@@  @@@ @@@  @@@@@@@   @@@@@@@@  @@@@@@@@  @@@       @@@@@@@@
@@ -46,20 +46,21 @@ shopt -s cmdhist                                                      # multi-li
 export HISTFILESIZE=1000                                              # bash history file length
 export HISTCONTROL=ignoreboth                                         # no duplicates and empty lines
 export HISTIGNORE="&:ls:[bf]g:exit:sudo*:rm*:halt:reboot:shutdown"    # do not store these lines
+export VDPAU_NVIDIA_NO_OVERLAY=1                                      # Fix bleeding overlay with Flash
 #export PROMPT_COMMAND="history -n; history -a"                       # update & re-read histfile after every cmd so terminals will share
 
 
 # make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/bash lesspipe)"
+#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/bash lesspipe)"
 
 export EDITOR='vim'
 export VISUAL='vim'
 export LS_OPTIONS='--color --group-directories-first'
 export GREP_COLOR='38;5;111'
 export PAGER='less'
-export LESS='-iR'
+export LESS='-iRFX'
 #export LESSOPEN='|/usr/bin/lesspipe.sh %s 2>&-'
-export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
+#export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
 export SSH_ENV=$HOME/.ssh/environment
 export TIME_STYLE=long-iso                              # Sets the time format for ls to something better.
 

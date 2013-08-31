@@ -13,42 +13,49 @@
 #===============================================================================
 #
 
-color   normal          color75         color233
-color   quoted          brightred       color233
-color   signature       color126        color233
-color   indicator       color208        color232
-color   error           color160        color233
-color   status          color75         color232
-color   tree            color75         color233
-color   tilde           color246        color233
-color   message         color208        color233
-color   markers         color76         color233
-color   attachment      color221        color233
-color   search          color160        color233
+color   normal          color75         color233    # Default colours
+color   signature       color126        color233    # Sigs
+color   indicator       color208        color232    # Currently highlighted message
+color   error           color160        color233    # Error messages
+color   status          color75         color232    # Status line (unread msgs, current dir, etc.)
+color   tree            color75         color233    # Tree thread arrows
+color   tilde           color246        color233    # Blank line padding 
+color   message         color208        color233    # Message
+color   markers         color76         color233    # Shortcut statusline (q:Quit, etc.)
+color   attachment      color221        color233    # Attachments
+color   search          color160        color233    # Highlight results
 
 
+color   quoted          brightred       color233    # Quote colours
+#color   quoted1         brightcyan      default
+#color   quoted2         green           default
+#color   quoted3         blue            default
+#color   quoted4         yellow          default
+#color   quoted5         red             default
 
-color   hdrdefault      color208        color233
-#color  header          color111        color234    "^(Date|From|Subject)"
-#color  header          color111        color234    "^(To|Reply-To):"
-#color  header          color111        color234    "^(X-Original-To):"
-#color  header          color111        color234    "^(User-Agent|X-Editor):"
+
+color   hdrdefault      color208        color233    # Default headers
+#color  header          color111        color233    "^(Date|From|Subject)"
+#color  header          color111        color233    "^(To|Reply-To):"
+#color  header          color111        color233    "^(X-Original-To):"
+#color  header          color111        color233    "^(User-Agent|X-Editor):"
 
 color   index           color75         color233    "~A"        # All
 color   index           color220        color233    "~T!~D"     # Tagged and not deleted.
 color   index           color88         color233    "~T~D"      # Tagged and deleted.
 color   index           color160        color233    "~D!~T"     # Deleted and not tagged.
-#color   index           green           color234    "~F"       # Flagged
-#color   index           color250        color234    "~O"       # Old
+#color   index           green           color233    "~F"       # Flagged
+#color   index           color250        color233    "~O"       # Old
 color   index           color154        color233    "~U!~D!~T"  # Unread, not deleted and not tagged.
+#color   index           color87        color233    "~Q"        # Messages already replied to.
 
 
 #sidebar in mutt-ng
 color   sidebar_new     color124        color233
 color   sidebar_flagged green           color233
 
-#color   body            color81         color234    "(ftp|http)://\w[^ ]+[^.]"  # point out URLs
-#color   body            color128        color234    "[-.+\w]+@[-.\w]+[^.]"      # e-mail addresses
+#color   body            color81         color233    "(ftp|http)://\w[^ ]+[^.]"  # point out URLs
+#color   body            color128        color233    "[-.+\w]+@[-.\w]+[^.]"      # e-mail addresses
 
 color   underline       green           color233
 

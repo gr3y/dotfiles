@@ -1,5 +1,6 @@
 set header_cache="~/.mutt-cache/hcache"
-set message_cachedir=~/.mutt-cache/msgcache"
+set message_cachedir="~/.mutt-cache/msgcache"
+set certificate_file = ~/.mutt/certificates
 set sendmail="/usr/bin/msmtp"
 set allow_8bit
 set allow_ansi
@@ -8,11 +9,13 @@ set envelope_from=yes
 set mailcap_path="~/.mailcap"
 auto_view "text/html"
 #set implicit_autoview
-set move = no
+set move=no
 #set menu_scroll             # scroll in menus when traversing screen margins
 set sort=threads
 set pager_index_lines=20
 #set ascii_chars
+unset imap_passive
+set imap_keepalive = 300
 set mail_check=60
 set timeout=60
 set editor=vim
@@ -22,9 +25,8 @@ set date_format="%Y-%m-%d %H:%M:%S"
 set index_format="%4C  [%3Z|%?X?A& ?|%S]  %-19.19[%Y-%m-%d %H:%M:%S]  [%-35.35L (%-30.30a)]  -  %s %>  (%4c)  [%N]"
 set sidebar_visible="yes"
 set sidebar_width=20
-#set sidebar_delim="│"
-#set sidebar_delim='|'
-set sidebar_delim='┃'
+set sidebar_delim="│"
+#set sidebar_delim='┃'
 #set sidebar_sort=yes
 set nobeep
 set beep_new

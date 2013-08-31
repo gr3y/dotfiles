@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 #
 #   @@@@@@@@  @@@@@@@   @@@@@@@@  @@@ @@@   @@@@@@    @@@@@@@   @@@@@@   @@@       @@@@@@@@
 #  @@@@@@@@@  @@@@@@@@  @@@@@@@@  @@@ @@@  @@@@@@@   @@@@@@@@  @@@@@@@@  @@@       @@@@@@@@
@@ -25,4 +25,4 @@
 #
 
 
-xterm -class MuttUXTERM -u8 -title Mutt -e /bin/bash -c /usr/bin/mutt $@
+xterm -class MuttUXTERM -u8 -title Mutt -e /usr/bin/bash -c /usr/bin/mutt $@

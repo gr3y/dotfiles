@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/usr/bin/bash 
 #
 #   @@@@@@@@  @@@@@@@   @@@@@@@@  @@@ @@@   @@@@@@    @@@@@@@   @@@@@@   @@@       @@@@@@@@
 #  @@@@@@@@@  @@@@@@@@  @@@@@@@@  @@@ @@@  @@@@@@@   @@@@@@@@  @@@@@@@@  @@@       @@@@@@@@
@@ -52,7 +52,7 @@ alias ychup='yaourt -Syu -p --print-format "%r/%n %v %s"' # Sync repos and displ
 alias findpac='find /etc /var /boot -regex ".*pac\(new\|save\|orig\)" -print'    # Find pacman "leftovers".
 
 # Pacman alias examples
-alias pacman='pacman-color'
+#alias pacman='pacman-color'
 alias pacupg='sudo pacman -Syu'             # Synchronize with repositories before upgrading packages that are out of date on the local system.
 alias pacin='sudo pacman -S'                # Install specific package(s) from the repositories
 alias pacins='sudo pacman -U'               # Install specific package not from the repositories but from a file 

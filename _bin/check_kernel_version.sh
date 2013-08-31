@@ -1,4 +1,4 @@
-#!/bin/bash                                                                                                              
+#!/usr/bin/bash                                                                                                              
 #                                                                                                                        
 #    @@@@@@@@  @@@@@@@   @@@@@@@@  @@@ @@@   @@@@@@    @@@@@@@   @@@@@@   @@@       @@@@@@@@                             
 #   @@@@@@@@@  @@@@@@@@  @@@@@@@@  @@@ @@@  @@@@@@@   @@@@@@@@  @@@@@@@@  @@@       @@@@@@@@                             
@@ -29,6 +29,10 @@
 #
 
 RUNNING=$(/usr/bin/pacman -Qi linux | grep Version | cut -f10 -d' ')
+SAVE_KRN_STD="$HOME/.local/tmp/saved_kernel_version"
+SAVE_KRN_CK="$HOME/.local/tmp/saved_kernel-ck_version"
+
+
 
 if [ -e "$HOME/.local/tmp/saved_kernel_version" ]; then
   SAVED=$(cat "$HOME/.local/tmp/saved_kernel_version")
