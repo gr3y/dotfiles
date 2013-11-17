@@ -130,7 +130,7 @@ end
 -- {{{ Menu
 -- Create a laucher widget and a main menu
 
---menu_items = freedesktop.menu.new()
+-- menu_items = freedesktop.menu.new()
 
 myawesomemenu = {
    { "manual", terminal .. " -e man awesome" },
@@ -140,10 +140,14 @@ myawesomemenu = {
 }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
---                                  { "apps", menu_items },
-                                    { "open terminal", terminal }
-                                  }
-                        })
+                                 { "apps", menu_items },
+                                   { "open terminal", terminal }
+                                 }
+                       })
+
+-- table.insert(menu_items, { "awesome", myawesomemenu, beautiful.awesome_icon })
+
+-- mymainmenu = awful.menu.new({ items = menu_items, width = 200 })
 
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })
