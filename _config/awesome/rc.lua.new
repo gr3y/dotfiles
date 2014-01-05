@@ -39,7 +39,7 @@ naughty.config.defaults.position = "bottom_right"
 
 local menubar = require("menubar")
 
--- freedesktop = require("freedesktop.menu")
+
 
 
 -- {{{ Error handling
@@ -77,6 +77,15 @@ terminal = "uxterm -rightbar -sb"
 editor = "vim"
 editor_cmd = terminal .. " -e " .. editor
 filemanager = "/usr/bin/pcmanfm-mod"
+
+
+-- require('freedesktop.utils')
+-- freedesktop.utils.terminal = terminal
+-- freedesktop.utils.icon_theme = 'clarity-canus'
+-- require('freedesktop.menu')
+require('menu')
+
+
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -123,41 +132,25 @@ end
 -- {{{ Menu
 -- Create a laucher widget and a main menu
 
-require("freedesktop.utils")
-freedesktop.utils.terminal = terminal
-freedesktop.utils.icon_theme = "gnome"
-
-require("freedesktop.menu")
-
-menu_items = freedesktop.menu.new()
+-- menu_items = freedesktop.menu.new()
 
 myawesomemenu = {
- { "manual", terminal .. " -e man awesome", freedesktop.utils.lookup_icon({ icon = 'help' }) },
- { "edit config", editor_cmd .. " " .. awful.util.getdir("config") .. "/rc.lua", freedesktop.utils.lookup_icon({ icon = 'package_settings' }) },
- { "restart", awesome.restart, freedesktop.utils.lookup_icon({ icon = 'gtk-refresh' }) },
- { "quit", awesome.quit, freedesktop.utils.lookup_icon({ icon = 'gtk-quit' }) }
+   { "manual", terminal .. " -e man awesome" },
+   { "edit config", editor_cmd .. " " .. awesome.conffile },
+   { "restart", awesome.restart },
+   { "quit", awesome.quit }
 }
 
+mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
+                                 { "apps", xdgmenu },
+--                                 { "apps", menu_items },
+                                   { "open terminal", terminal }
+                                 }
+                       })
 
-table.insert(menu_items, { "awesome", myawesomemenu, beautiful.awesome_icon })
-table.insert(menu_items, { "open terminal", terminal, freedesktop.utils.lookup_icon({icon = 'terminal'}) })
+-- table.insert(menu_items, { "awesome", myawesomemenu, beautiful.awesome_icon })
 
-mymainmenu = awful.menu.new({ items = menu_items, width = 150 })
-
-
-
--- myawesomemenu = {
---    { "manual", terminal .. " -e man awesome" },
---    { "edit config", editor_cmd .. " " .. awesome.conffile },
---    { "restart", awesome.restart },
---    { "quit", awesome.quit }
--- }
-
--- mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
---                                  { "apps", menu_items },
---                                    { "open terminal", terminal }
---                                  }
---                        })
+-- mymainmenu = awful.menu.new({ items = menu_items, width = 200 })
 
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })

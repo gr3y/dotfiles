@@ -50,6 +50,7 @@ alias mc='mc -u'                            # Workaround for mc's sloow startup.
 
 alias ychup='yaourt -Syu -p --print-format "%r/%n %v %s"' # Sync repos and display available updates.
 alias findpac='find /etc /var /boot -regex ".*pac\(new\|save\|orig\)" -print'    # Find pacman "leftovers".
+alias paclog='grep "$(date +%Y-%m-%d)" /var/log/pacman.log | grep -i "warn\|err"'
 
 # Pacman alias examples
 #alias pacman='pacman-color'

@@ -83,6 +83,8 @@ filemanager = "/usr/bin/pcmanfm-mod"
 -- freedesktop.utils.terminal = terminal
 -- freedesktop.utils.icon_theme = 'clarity-canus'
 -- require('freedesktop.menu')
+require('menu')
+
 
 
 -- Default modkey.
@@ -140,7 +142,8 @@ myawesomemenu = {
 }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                 { "apps", menu_items },
+                                 { "apps", xdgmenu },
+--                                 { "apps", menu_items },
                                    { "open terminal", terminal }
                                  }
                        })

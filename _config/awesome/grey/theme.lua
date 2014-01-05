@@ -32,7 +32,7 @@ awful.util = require("awful.util")
 theme = {}
 theme.confdir = awful.util.getdir("config")
 
-theme.font          = "Terminus 7"
+awesome.font          = "Terminus 7"
 
 -- Remove the taskbar icons
 theme.tasklist_disable_icon = true
@@ -74,7 +74,7 @@ theme.taglist_squares_unsel = theme.confdir .. "/grey/taglist/squarew.png"
 -- menu_[border_color|border_width]
 theme.menu_submenu_icon = theme.confdir .. "/grey/submenu.png"
 theme.menu_height       = 15
-theme.menu_width        = 100
+theme.menu_width        = 130
 
 -- You can add as many variables as
 -- you wish and access them by using
