@@ -35,7 +35,7 @@ set magic
 set nobackup
 set splitbelow
 set splitright
-set cursorline
+set nocursorline
 
 
 
@@ -43,8 +43,9 @@ set cursorline
 " These pathogen functions need to be invoked before "filetype plugin indent on" if
 " you want it to load ftdetect files.
 filetype off
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+" call pathogen#helptags()
+" call pathogen#runtime_append_all_bundles()
+execute pathogen#infect()
 
 filetype plugin indent on
 
@@ -67,7 +68,8 @@ silent! set undodir=~/.local/tmp/
 silent! set undofile
 
 " Folding settings
-set foldmethod=syntax
+" "set foldmethod=syntax
+set foldmethod=indent
 " set foldnestmax=10
 set nofoldenable
 set foldlevel=2
@@ -84,9 +86,6 @@ set listchars=tab:»·,trail:·
 
 
 set history=50
-
-" Autotag
-""so ~/.vim/bundle/autotag/plugin/autotag.vim
 
 
 syntax on
@@ -125,25 +124,6 @@ set hlsearch
 
 
 
-""let g:easytags_file = '~/.vim/tags/easytags/global.tags' " global tags
-""let g:easytags_dynamic_files = 2
-" 1: if project specific tags exists, otherwise -> use global tags file
-" 2: auto create project specific tags based on first name in 'tags' option
-""let g:easytags_by_filetype = '~/.vim/tags/easytags'
-""let g:easytags_always_enabled = 0 " this slow down Vim
-""let g:easytags_on_cursorhold = 0 " disable periodic highlight
-""let g:easytags_updatetime_min = 4000
-""let g:easytags_updatetime_autodisable = 1
-let g:easytags_auto_update = 1          " auto update tags and highlights
-let g:easytags_auto_highlight = 1       " auto highlight tags
-let g:easytags_autorecurse = 0          " 0: file, 1: current dir, 2: recursively
-let g:easytags_resolve_links = 1        " unix symbolic link and hard link
-let g:easytags_include_members = 1      " let ctags include struct/class members
-""set tags+=~/.vim/tags/easytags/global.tags " for easytags
-
-
-
-
 " Some key mappings
 map             <F2>              :nohlsearch<CR>                                 " Turns of the current hlsearch.
 set pastetoggle=<F3>
@@ -175,9 +155,7 @@ autocmd     FileType vim                noremap <F6> :s/\v^(\s*)" /\1/ <CR>
 autocmd     FileType lua                noremap <F5> :s/\v^(\s*)/\1-- / <CR>
 autocmd     FileType lua                noremap <F6> :s/\v^(\s*)-- /\1/ <CR>
 
-" autocmd   BufRead             *.lua       setlocal makeprg=lua\ %
 au          BufNewFile,BufRead  *conkyrc    set filetype=conkyrc
-au          BufNewFile,BufRead  *.vorg      set filetype=vorg
 "autocmd    BufWritePost        *.sh !chmod +x %
 
 " Java
@@ -189,7 +167,6 @@ if has('gui_running')
 end
 
 set grepprg=grep\ -nH\ $*
-let g:tex_flavor = "latex"
 
 " Show trailing whitespace and spaces before tabs
 
