@@ -41,14 +41,17 @@ shopt -s extglob
 shopt -s checkwinsize
 
 # Control history (luckily the winner of the war writes it).
-shopt -s histappend                                                   # append the history to the histfile instead of overwriting it.
-shopt -s cmdhist                                                      # multi-line commands are stored in the history
-export HISTFILESIZE=1000                                              # bash history file length
+export HISTSIZE=10000
+export HISTFILESIZE=10000                                             # bash history file length
 export HISTCONTROL=ignoreboth                                         # no duplicates and empty lines
-export HISTIGNORE="&:ls:[bf]g:exit:sudo*:rm*:halt:reboot:shutdown"    # do not store these lines
+export HISTIGNORE="&:ls:[bf]g:exit:sudo*:rm*"                         # do not store these lines
+shopt -s cmdhist                                                      # multi-line commands are stored in the history
+shopt -s histappend                                                   # append the history to the histfile instead of overwriting it.
 #export VDPAU_NVIDIA_NO_OVERLAY=1                                      # Fix bleeding overlay with Flash
 #export PROMPT_COMMAND="history -n; history -a"                       # update & re-read histfile after every cmd so terminals will share
 
+# Set QT5 style to gtk
+#export QT_STYLE_OVERRIDE="gtk"
 
 # make less more friendly for non-text input files, see lesspipe(1)
 #[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/bash lesspipe)"
@@ -58,11 +61,16 @@ export VISUAL='vim'
 export LS_OPTIONS='--color --group-directories-first'
 export GREP_COLOR='38;5;111'
 export PAGER='less'
-export LESS='-iRFX'
+export LESS='-iRX'
+#export LESS='-iRFX'
 #export LESSOPEN='|/usr/bin/lesspipe.sh %s 2>&-'
 #export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
+export _JAVA_AWT_WM_NONREPARENTING=1
 export SSH_ENV=$HOME/.ssh/environment
 export TIME_STYLE=long-iso                              # Sets the time format for ls to something better.
+
+#export VDPAU_DRIVER=nvidia
+#export LIBVA_DRIVER_NAME=vdpau
 
 # Disable XON/XOFF flow control (^s/^q)
 stty -ixon

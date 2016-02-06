@@ -22,14 +22,14 @@
 " __________________________________________________________________________________________
 "
 
-set nocompatible
-set mouse-=a
-set number
-set novb
-set encoding=utf-8
-set termencoding=utf-8
-set showmatch
-set showmode
+set nocompatible                  " Disable vi compatibility (emulation of old bugs).
+set mouse-=a                      " Disable the the mouse.
+set number                        " Display line numbers.
+set novb                          " Disable visual bell.
+set encoding=utf-8                " Set internal encoding.
+set termencoding=utf-8            " Set terminal encoding.
+set showmatch                     " Show matching bracket.
+set showmode                      " Show the editing mode on the last line.
 set showcmd
 set magic
 set nobackup
@@ -155,7 +155,7 @@ autocmd     FileType vim                noremap <F6> :s/\v^(\s*)" /\1/ <CR>
 autocmd     FileType lua                noremap <F5> :s/\v^(\s*)/\1-- / <CR>
 autocmd     FileType lua                noremap <F6> :s/\v^(\s*)-- /\1/ <CR>
 
-au          BufNewFile,BufRead  *conkyrc    set filetype=conkyrc
+" au          BufNewFile,BufRead  *conkyrc    set filetype=conkyrc
 "autocmd    BufWritePost        *.sh !chmod +x %
 
 " Java

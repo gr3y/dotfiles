@@ -25,4 +25,4 @@
 #
 
 
-xterm -class myttyclock -u8 -title ttyclock -e /usr/bin/bash -c 'sleep 1 && /usr/bin/tty-clock -csx $@'
+xterm -class myttyclock -u8 -title ttyclock -e /usr/bin/bash -c 'sleep 1 && /usr/bin/tty-clock -cs $@'

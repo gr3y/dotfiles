@@ -1,71 +1,67 @@
-#
-#   @@@@@@@@  @@@@@@@   @@@@@@@@  @@@ @@@   @@@@@@    @@@@@@@   @@@@@@   @@@       @@@@@@@@
-#  @@@@@@@@@  @@@@@@@@  @@@@@@@@  @@@ @@@  @@@@@@@   @@@@@@@@  @@@@@@@@  @@@       @@@@@@@@
-#  !@@        @@!  @@@  @@!       @@! !@@  !@@       !@@       @@!  @@@  @@!       @@!
-#  !@!        !@!  @!@  !@!       !@! @!!  !@!       !@!       !@!  @!@  !@!       !@!
-#  !@! @!@!@  @!@!!@!   @!!!:!     !@!@!   !!@@!!    !@!       @!@!@!@!  @!!       @!!!:!
-#  !!! !!@!!  !!@!@!    !!!!!:      @!!!    !!@!!!   !!!       !!!@!!!!  !!!       !!!!!:
-#  :!!   !!:  !!: :!!   !!:         !!:         !:!  :!!       !!:  !!!  !!:       !!:
-#  :!:   !::  :!:  !:!  :!:         :!:        !:!   :!:       :!:  !:!   :!:      :!:
-#   ::: ::::  ::   :::   :: ::::     ::    :::: ::    ::: :::  ::   :::   :: ::::   :: ::::
-#   :: :: :    :   : :  : :: ::      :     :: : :     :: :: :   :   : :  : :: : :  : :: ::
-#
-#    .: FILE:          .conkyrc
-#    .: CREATED:       2011-05-31 15:37
-#    .: AUTHOR:        Andreas Persson (greyscale, grey)
-#    .: MAIL:          <andreas(at)greyscale(dot)se>
-#    .: VERSION:       1.0
-#    .: DESCRIPTION:   16 pixel conkybar at the bottom of the right screen.
-#
-# __________________________________________________________________________________________
-#  This file is distributed "as it is", like it? Then use it in whole or parts of it but be
-#  minded that it comes with absolutely no warranty. But then again you got it for free..
-# __________________________________________________________________________________________
-#
+--
+--   @@@@@@@@  @@@@@@@   @@@@@@@@  @@@ @@@   @@@@@@    @@@@@@@   @@@@@@   @@@       @@@@@@@@
+--  @@@@@@@@@  @@@@@@@@  @@@@@@@@  @@@ @@@  @@@@@@@   @@@@@@@@  @@@@@@@@  @@@       @@@@@@@@
+--  !@@        @@!  @@@  @@!       @@! !@@  !@@       !@@       @@!  @@@  @@!       @@!
+--  !@!        !@!  @!@  !@!       !@! @!!  !@!       !@!       !@!  @!@  !@!       !@!
+--  !@! @!@!@  @!@!!@!   @!!!:!     !@!@!   !!@@!!    !@!       @!@!@!@!  @!!       @!!!:!
+--  !!! !!@!!  !!@!@!    !!!!!:      @!!!    !!@!!!   !!!       !!!@!!!!  !!!       !!!!!:
+--  :!!   !!:  !!: :!!   !!:         !!:         !:!  :!!       !!:  !!!  !!:       !!:
+--  :!:   !::  :!:  !:!  :!:         :!:        !:!   :!:       :!:  !:!   :!:      :!:
+--   ::: ::::  ::   :::   :: ::::     ::    :::: ::    ::: :::  ::   :::   :: ::::   :: ::::
+--   :: :: :    :   : :  : :: ::      :     :: : :     :: :: :   :   : :  : :: : :  : :: ::
+--
+--    .: FILE:          .conkyrc
+--    .: CREATED:       2011-05-31 15:37
+--    .: AUTHOR:        Andreas Persson (greyscale, grey)
+--    .: MAIL:          <andreas(at)greyscale(dot)se>
+--    .: VERSION:       1.0
+--    .: DESCRIPTION:   16 pixel conkybar at the bottom of the right screen.
+--
+-- __________________________________________________________________________________________
+--  This file is distributed "as it is", like it? Then use it in whole or parts of it but be
+--  minded that it comes with absolutely no warranty. But then again you got it for free..
+-- __________________________________________________________________________________________
+--
+-- vim: ts=4 sw=4 noet ai cindent syntax=lua
 
+ 
+conky.config = {
+  double_buffer = true,
+  own_window  = true,
+  own_window_transparent = false,
+  own_window_type = 'override',
+  own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+  background = true,
+  draw_borders = false,
+  draw_shades = false,
+  use_spacer = 'left',
+  short_units = true,
+  update_interval = 1,
+  uppercase = false,
+  gap_x = 0,
+  gap_y = 0,
+  --alignment = 'bottom_left',
+  minimum_height = 14,
+  minimum_width = 1910,
+  default_color = '5fafff',
+  own_window_colour = '121212',
+  color1 = 'ff8700',
+  color2 = '5fafff',
+  color3 = 'ff0056',
+  use_xft = true,
+  font = 'Terminus:size=8'
+}
 
-double_buffer yes
-own_window  yes
-own_window_transparent no
-own_window_type override
-own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-background yes
-draw_borders no
-draw_shades no
-use_spacer left
-short_units yes
-update_interval 1
-uppercase no
-
-#position
-gap_x 0
-gap_y 0
-alignment bottom_right
-minimum_size 1910 14
-maximum_width 1910 14
-
-#colour
-default_color 5fafff
-own_window_colour 121212
-color1 ff8700
-color2 5fafff
-color3 ff0056
-
-#font
-use_xft yes
-xftfont Terminus:size=8
-#xftfont Monaco:size=8
-#    ${color1}.:${color}CPU: ${cpu}% ${cpugraph 10,50 5fafff ff0056 -t} \
-
-TEXT
-${color1}.:${color}${nodename} \
-    ${color1}.:${color}${uptime} \
-    ${alignc}${color1}.:${color}loadavg: ${loadavg 2} ${loadgraph 10,50 5fafff ff8700 -t} \
-    ${color1}.:${color}CPU: ${cpu}% ${cpugraph 10,50 5fafff ff8700 } \
-    ${color1}.:${color}RAM: ${memperc}% ${memgraph 10,50 5fafff ff8700 -t} \
-    ${color1}.:${color}SWAP:${swapperc}% ${swapbar 10,50 5fafff ff8700 -t} \
-    ${color1}.:${color}I/O: ${diskio} ${diskiograph 10,50 5fafff ff8700 -t} \
-    ${color1}.:${color}eth0 UP: ${upspeed} ${upspeedgraph eth0 10,50 5fafff ff8700 -t} \
-    ${color1}.:${color}eth0 DOWN: ${downspeed} ${downspeedgraph eth0 10,50 5fafff ff8700 -t} \
-    ${alignr}${color1}.:${color}${time %Y-%m-%d %A} \
-    ${color1}.:${color}${time %H:%M:%S} 
+conky.text = [[
+  ${color1}.:${color}${nodename} \
+  ${color1}.:${color}${uptime} \
+  ${color1}${alignc}.:${color}loadavg: ${loadavg 2} ${loadgraph 10,50 5fafff ff8700 -t} \
+  ${color1}${offset 35}.:${color}CPU: ${cpu}% ${cpugraph 10,50 5fafff ff8700 } \
+  ${color1}${offset 35}.:${color}RAM: ${memperc}% ${memgraph 10,50 5fafff ff8700 -t} \
+  ${color1}${offset 35}.:${color}SWAP:${swapperc}% ${swapbar 10,50 5fafff ff8700 -t} \
+  ${color1}${offset 35}.:${color}I/O: ${diskio} ${diskiograph 10,50 5fafff ff8700 -t} \
+  ${color1}${offset 35}.:${color}enp7s0 UP: ${upspeed enp7s0} ${upspeedgraph enp7s0 10,50 5fafff ff8700 -t} \
+  ${color1}${offset 35}.:${color}enp7s0 DOWN: ${downspeed enp7s0} ${downspeedgraph enp7s0 10,50 5fafff ff8700 -t} \
+  ${color1}${offset 35}${alignr}.:${color}${time %Y-%m-%d %A} \
+  ${color1}.:${color}${time %H:%M:%S} 
+]]

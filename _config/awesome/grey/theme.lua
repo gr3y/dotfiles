@@ -32,7 +32,8 @@ awful.util = require("awful.util")
 theme = {}
 theme.confdir = awful.util.getdir("config")
 
-awesome.font          = "Terminus 7"
+-- awesome.font          = "Terminus 7"
+awesome.font          = "Terminusmodx 7"
 
 -- Remove the taskbar icons
 theme.tasklist_disable_icon = true

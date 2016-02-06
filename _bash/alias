@@ -68,4 +68,7 @@ alias paclocs='pacman -Qs'                  # Search for package(s) in the local
 alias upebooks="find  \"$HOME/docs/Calibre Library\"  -name *.epub -exec cp -uv '{}' /media/PHONE/Books \;" 
 alias upebookstablet="find  \"$HOME/docs/Calibre Library\"  -name *.epub -exec cp -uv '{}' '/media/TABLET 725H/Books' \;" 
 
+# Firefox addon SDK
+alias addon-sdk="cd /opt/addon-sdk && source bin/activate; cd -"
+
 # vim:fenc=utf-8:ft=sh

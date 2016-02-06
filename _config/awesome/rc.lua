@@ -73,7 +73,7 @@ end
 beautiful.init("/home/andreasp/.config/awesome/grey/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "uxterm -rightbar -sb"
+terminal = "uxterm -rightbar -sb -ls"
 editor = "vim"
 editor_cmd = terminal .. " -e " .. editor
 filemanager = "/usr/bin/pcmanfm-mod"
@@ -83,7 +83,7 @@ filemanager = "/usr/bin/pcmanfm-mod"
 -- freedesktop.utils.terminal = terminal
 -- freedesktop.utils.icon_theme = 'clarity-canus'
 -- require('freedesktop.menu')
-require('menu')
+require('applicationsmenu')
 
 
 
@@ -133,20 +133,21 @@ end
 -- Create a laucher widget and a main menu
 
 -- menu_items = freedesktop.menu.new()
+-- 
+ myawesomemenu = {
+    { "manual", terminal .. " -e man awesome" },
+    { "edit config", editor_cmd .. " " .. awesome.conffile },
+    { "restart", awesome.restart },
+    { "quit", awesome.quit }
+ }
+-- 
+ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
+                                  { "apps", xdgmenu },
+ --                                 { "apps", menu_items },
+                                    { "open terminal", terminal }
+                                  }
+                        })
 
-myawesomemenu = {
-   { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor_cmd .. " " .. awesome.conffile },
-   { "restart", awesome.restart },
-   { "quit", awesome.quit }
-}
-
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                 { "apps", xdgmenu },
---                                 { "apps", menu_items },
-                                   { "open terminal", terminal }
-                                 }
-                       })
 
 -- table.insert(menu_items, { "awesome", myawesomemenu, beautiful.awesome_icon })
 
@@ -259,9 +260,9 @@ end
 
 -- {{{ Mouse bindings
 root.buttons(awful.util.table.join(
-    awful.button({ }, 3, function () mymainmenu:toggle() end),
-    awful.button({ }, 4, awful.tag.viewnext),
-    awful.button({ }, 5, awful.tag.viewprev)
+    awful.button({ }, 3, function () mymainmenu:toggle() end)
+    --awful.button({ }, 4, awful.tag.viewnext),
+    --awful.button({ }, 5, awful.tag.viewprev)
 ))
 -- }}}
 
@@ -314,19 +315,19 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "e",     function () awful.util.spawn(filemanager) end),
     
     -- restore minimized windows
-    awful.key({modkey,   "Shift" }, "n",
-        function ()
-            local allclients = client.get(mouse.screen)
-            for _,c in ipairs(allclients) do
-                if c.minimized and c:tags()[mouse.screen] ==
-                    awful.tag.selected(mouse.screen) then
-                    c.minimized = false
-                    client.focus = c
-                    c:raise()
-                    return
-                end
-            end
-        end),
+--     awful.key({modkey,   "Shift" }, "n",
+--         function ()
+--             local allclients = client.get(mouse.screen)
+--             for _,c in ipairs(allclients) do
+--                 if c.minimized and c:tags()[mouse.screen] ==
+--                     awful.tag.selected(mouse.screen) then
+--                     c.minimized = false
+--                     client.focus = c
+--                     c:raise()
+--                     return
+--                 end
+--             end
+--         end),
 
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
@@ -445,6 +446,7 @@ awful.rules.rules = {
       properties = { border_width = beautiful.border_width,
                      border_color = beautiful.border_normal,
                      focus = awful.client.focus.filter,
+                     raise = true,
                      keys = clientkeys,
                      buttons = clientbuttons } },
     { rule = { class = "MPlayer" },
@@ -461,7 +463,7 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "Same-gnome" },
       properties = { floating = true } },
-    { rule = { class = "Virtualbox" },
+    { rule = { class = "VirtualBox" },
       properties = { floating = true,
                      tag = tags[1][6] } },
     { rule = { class = "Vmplayer" },
@@ -473,9 +475,13 @@ awful.rules.rules = {
       properties = { tag = tags[1][9] } },
     { rule = { class = "Eclipse" },
       properties = { tag = tags[1][1] } },
-    { rule = { instance = "firefox" },
-      properties = { floating = true } },
+    { rule = { class = "Firefox" },
+      properties = { tag = tags[1][2] } },
+    { rule = { instance = "plugin-container" },
+  		properties = { floating = true } },
       -- properties = { floating = true, fullscreen = true } },
+    { rule = { class = "Xdcp" },
+      properties = { floating = true } },
     { rule = { class = "XTerm" },
       properties = { opacity = 0.7 } }
     -- Set Firefox to always map on tags number 2 of screen 1.
@@ -552,19 +558,54 @@ client.connect_signal("manage", function (c, startup)
         awful.titlebar(c):set_widget(layout)
     end
 end)
+-- }}}
 
-client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
+
+-- No border for maximized clients
+client.connect_signal("focus",
+    function(c)
+        if c.maximized_horizontal == true and c.maximized_vertical == true then
+            c.border_color = beautiful.border_normal
+        else
+            c.border_color = beautiful.border_focus
+        end
+    end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+-- }}}
+
+-- {{{ Arrange signal handler
+for s = 1, screen.count() do screen[s]:connect_signal("arrange", function ()
+        local clients = awful.client.visible(s)
+        local layout  = awful.layout.getname(awful.layout.get(s))
+
+        if #clients > 0 then -- Fine grained borders and floaters control
+            for _, c in pairs(clients) do -- Floaters always have borders
+                if awful.client.floating.get(c) or layout == "floating" then
+                    c.border_width = beautiful.border_width
+
+                -- No borders with only one visible client
+                elseif #clients == 1 or layout == "max" then
+                    c.border_width = 0
+                else
+                    c.border_width = beautiful.border_width
+                end
+            end
+        end
+      end)
+end
 -- }}}
 
 awful.util.spawn_with_shell("/home/andreasp/.bin/fixCaps.sh")
 awful.util.spawn_with_shell("/home/andreasp/.bin/fixIEC958.sh")
-awful.util.spawn_with_shell("/usr/bin/pnmixer &")
+awful.util.spawn_with_shell("/usr/bin/pulseaudio -D")
 awful.util.spawn_with_shell("/usr/bin/conky")
 awful.util.spawn_with_shell("/usr/bin/tilda")
 awful.util.spawn_with_shell("/usr/bin/xbindkeys")
-awful.util.spawn_with_shell("/usr/bin/dropboxd &")
+awful.util.spawn_with_shell("QT_STYLE_OVERRIDE=gtk /usr/bin/dropbox &")
+awful.util.spawn_with_shell("sleep 5 && /usr/bin/pnmixer &")
 awful.util.spawn_with_shell("sleep 5 && /home/andreasp/.bin/check_kernel_version.sh")
+-- Changed wm name from LG3D to Sawfish. this solved the annoying java menu bug.
+awful.util.spawn_with_shell("/usr/bin/wmname Sawfish")
 
 
 -- awful.util.spawn_with_shell("/home/andreasp/.bin/fixJava.GUI.sh")

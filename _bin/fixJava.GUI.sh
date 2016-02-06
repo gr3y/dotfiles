@@ -1,3 +1,3 @@
-#/bin/bash
+#!/usr/bin/bash
 
 /usr/bin/wmname LG3D
